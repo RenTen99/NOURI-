@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOURIÉ — Curated Workplace Amenities</title>
+<meta name="description" content="Premium self-service amenity stations featuring wellness drinks, artisan snacks & everyday essentials. Custom-branded for your space. Free 30-day trial.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --plum:#3D1F47; --plum-mid:#5E3370; --plum-light:#7B4A8E;
+  --lav:#B48EC7; --lav-light:#D4B8E0; --lav-pale:#F0E6F5;
+  --rose:#E8A0BF; --rose-gold:#D4A574; --rose-pale:#FFF0F5;
+  --blush:#FDF2F8; --cream:#FFFBF7;
+  --electric:#C77DFF; --glow:#E0AAFF;
+  --ink:#1A1018; --ink-soft:#3D2F42; --text-md:#7A6B80; --text-lt:#A89AAE;
+  --gold:#D4A574; --gold-light:#E8C9A0;
+  --white:#FFFFFF;
+  --fd:'Cormorant Garamond', Georgia, serif;
+  --fb:'Outfit', system-ui, sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--ink-soft);background:var(--cream);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 20px rgba(199,125,255,.2)}50%{box-shadow:0 0 40px rgba(199,125,255,.4)}}
+@keyframes orbit{0%{transform:rotate(0deg) translateX(120px) rotate(0deg)}100%{transform:rotate(360deg) translateX(120px) rotate(-360deg)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease, transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;height:72px;background:rgba(255,251,247,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(180,142,199,.1);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;transition:all .3s}
+.nav.scrolled{box-shadow:0 4px 30px rgba(61,31,71,.08)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-n{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg, var(--plum), var(--electric));display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--fd);font-weight:500;font-size:16px}
+.nav-name{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--plum);letter-spacing:1px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-link{font-size:13px;font-weight:400;color:var(--text-md);letter-spacing:.5px;transition:color .2s}
+.nav-link:hover{color:var(--plum)}
+.nav-cta{padding:10px 28px;border-radius:50px;background:linear-gradient(135deg, var(--plum), var(--plum-light));color:var(--white);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:all .3s;box-shadow:0 4px 16px rgba(61,31,71,.2)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(61,31,71,.3)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg, var(--cream) 0%, var(--lav-pale) 30%, var(--rose-pale) 60%, var(--blush) 100%)}
+.hero-bg-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:float 8s ease-in-out infinite}
+.hero-bg-orb.o1{width:500px;height:500px;background:var(--electric);top:-100px;right:-100px;animation-delay:0s}
+.hero-bg-orb.o2{width:400px;height:400px;background:var(--rose);bottom:-80px;left:-80px;animation-delay:2s}
+.hero-bg-orb.o3{width:300px;height:300px;background:var(--lav);top:50%;left:50%;animation-delay:4s}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--plum-light);margin-bottom:20px;animation:fadeUp .8s ease both;animation-delay:.2s}
+.hero-h1{font-family:var(--fd);font-size:72px;font-weight:300;color:var(--plum);line-height:1.05;letter-spacing:-1px;margin-bottom:20px;animation:fadeUp .8s ease both;animation-delay:.4s}
+.hero-h1 em{font-style:italic;color:var(--electric);font-weight:400}
+.hero-sub{font-size:17px;color:var(--text-md);line-height:1.7;max-width:480px;margin-bottom:36px;animation:fadeUp .8s ease both;animation-delay:.6s}
+.hero-btns{display:flex;gap:16px;animation:fadeUp .8s ease both;animation-delay:.8s}
+.btn-primary{padding:16px 40px;border-radius:50px;background:linear-gradient(135deg, var(--plum), var(--plum-mid));color:var(--white);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;box-shadow:0 8px 24px rgba(61,31,71,.25);display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(61,31,71,.35)}
+.btn-secondary{padding:16px 40px;border-radius:50px;background:transparent;color:var(--plum);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--lav);transition:all .3s}
+.btn-secondary:hover{background:var(--lav-pale);border-color:var(--plum-light)}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;animation:fadeIn 1.2s ease both;animation-delay:.6s}
+.hero-machine{width:280px;height:420px;border-radius:20px;background:linear-gradient(180deg, var(--plum) 0%, var(--ink) 100%);box-shadow:0 40px 80px rgba(61,31,71,.3);position:relative;overflow:hidden}
+.hero-machine::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg, rgba(199,125,255,.15), transparent);pointer-events:none}
+.hero-machine-screen{position:absolute;top:16px;left:16px;right:16px;height:100px;border-radius:12px;background:linear-gradient(135deg, var(--plum-light), var(--electric));display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-machine-logo{font-family:var(--fd);font-size:28px;color:var(--white);font-weight:400;letter-spacing:2px}
+.hero-machine-sub{font-size:9px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-top:2px}
+.hero-machine-shelves{position:absolute;top:130px;left:16px;right:16px;bottom:70px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:6px;padding:4px}
+.hero-product{border-radius:6px;animation:float 3s ease-in-out infinite}
+.hero-product:nth-child(1){background:linear-gradient(135deg,#E8A0BF,#D4B8E0);animation-delay:0s}
+.hero-product:nth-child(2){background:linear-gradient(135deg,#B48EC7,#7B4A8E);animation-delay:.3s}
+.hero-product:nth-child(3){background:linear-gradient(135deg,#D4A574,#E8C9A0);animation-delay:.6s}
+.hero-product:nth-child(4){background:linear-gradient(135deg,#C77DFF,#E0AAFF);animation-delay:.9s}
+.hero-product:nth-child(5){background:linear-gradient(135deg,#FFC8DD,#FFAFCC);animation-delay:.2s}
+.hero-product:nth-child(6){background:linear-gradient(135deg,#BDB2FF,#A0C4FF);animation-delay:.5s}
+.hero-product:nth-child(7){background:linear-gradient(135deg,#D4A574,#C77DFF);animation-delay:.8s}
+.hero-product:nth-child(8){background:linear-gradient(135deg,#E8A0BF,#C77DFF);animation-delay:.1s}
+.hero-product:nth-child(9){background:linear-gradient(135deg,#CAFFBF,#9BF6FF);animation-delay:.4s}
+.hero-product:nth-child(10){background:linear-gradient(135deg,#FFC8DD,#BDB2FF);animation-delay:.7s}
+.hero-product:nth-child(11){background:linear-gradient(135deg,#E0AAFF,#D4B8E0);animation-delay:.15s}
+.hero-product:nth-child(12){background:linear-gradient(135deg,#FFAFCC,#FFC8DD);animation-delay:.45s}
+.hero-machine-tap{position:absolute;bottom:16px;left:16px;right:16px;height:40px;border-radius:10px;background:linear-gradient(90deg, var(--rose), var(--electric));display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--white);font-weight:500;letter-spacing:3px;text-transform:uppercase}
+.hero-orbit{position:absolute;width:280px;height:280px;animation:orbit 20s linear infinite}
+.hero-orbit-dot{width:12px;height:12px;border-radius:50%;background:var(--electric);box-shadow:0 0 20px var(--electric);animation:glow-pulse 2s ease infinite}
+
+/* Section styles */
+.section{padding:100px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--plum-light);margin-bottom:16px}
+.section-h2{font-family:var(--fd);font-size:48px;font-weight:300;color:var(--plum);line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px}
+.section-h2 em{font-style:italic;color:var(--electric)}
+.section-sub{font-size:16px;color:var(--text-md);line-height:1.7;max-width:560px;margin-bottom:48px}
+
+/* How It Works */
+.how-section{background:linear-gradient(180deg, var(--cream), var(--lav-pale))}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step-card{background:var(--white);border-radius:20px;padding:32px 28px;border:1px solid rgba(180,142,199,.12);transition:all .4s;position:relative;overflow:hidden}
+.step-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(61,31,71,.1);border-color:var(--lav)}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--plum), var(--electric), var(--rose));opacity:0;transition:opacity .3s}
+.step-card:hover::before{opacity:1}
+.step-num{font-family:var(--fd);font-size:48px;font-weight:300;color:var(--lav);margin-bottom:16px}
+.step-title{font-size:16px;font-weight:600;color:var(--plum);margin-bottom:10px;letter-spacing:.3px}
+.step-desc{font-size:13px;color:var(--text-md);line-height:1.7}
+
+/* Packages */
+.pkg-section{background:var(--cream);position:relative}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.pkg-card{background:var(--white);border-radius:24px;padding:36px 32px;border:1px solid rgba(180,142,199,.1);transition:all .4s;position:relative;overflow:hidden}
+.pkg-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(61,31,71,.12)}
+.pkg-card.featured{border-color:var(--electric);box-shadow:0 12px 40px rgba(199,125,255,.15)}
+.pkg-card.featured::after{content:'MOST POPULAR';position:absolute;top:20px;right:-32px;background:linear-gradient(90deg, var(--electric), var(--rose));color:var(--white);font-size:9px;font-weight:600;letter-spacing:2px;padding:6px 40px;transform:rotate(45deg)}
+.pkg-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.pkg-name{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--plum);margin-bottom:4px}
+.pkg-sub{font-size:12px;color:var(--text-lt);margin-bottom:20px}
+.pkg-trial{font-size:18px;font-weight:600;color:var(--electric);margin-bottom:4px}
+.pkg-rev{font-size:13px;font-weight:500;margin-bottom:24px}
+.pkg-divider{height:1px;background:linear-gradient(90deg, transparent, var(--lav-pale), transparent);margin-bottom:24px}
+.pkg-feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+.pkg-dot{width:6px;height:6px;border-radius:3px;margin-top:6px;flex-shrink:0}
+.pkg-feature-text{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.pkg-cta{display:block;width:100%;padding:14px;border-radius:50px;text-align:center;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-top:28px;transition:all .3s}
+
+/* Brands */
+.brands-section{background:linear-gradient(180deg, var(--lav-pale), var(--rose-pale))}
+.brand-tabs{display:flex;gap:8px;margin-bottom:36px}
+.brand-tab{padding:10px 24px;border-radius:50px;font-size:12px;font-weight:500;letter-spacing:.5px;border:1px solid var(--lav);color:var(--text-md);transition:all .2s;cursor:pointer}
+.brand-tab.active{background:linear-gradient(135deg, var(--plum), var(--plum-mid));color:var(--white);border-color:transparent}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.brand-card{background:rgba(255,255,255,.7);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(180,142,199,.1);display:flex;align-items:center;gap:16px;transition:all .3s}
+.brand-card:hover{background:var(--white);box-shadow:0 8px 24px rgba(61,31,71,.08);transform:translateY(-3px)}
+.brand-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:500;font-size:18px;color:var(--white);flex-shrink:0}
+.brand-name{font-size:14px;font-weight:600;color:var(--plum)}
+.brand-desc{font-size:11px;color:var(--text-md);margin-top:2px;line-height:1.4}
+.brand-price{font-size:12px;font-weight:600;color:var(--electric);margin-top:4px}
+
+/* Why */
+.why-section{background:var(--plum);position:relative;overflow:hidden}
+.why-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(199,125,255,.15), transparent);pointer-events:none}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.why-card{padding:32px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);transition:all .3s}
+.why-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)}
+.why-icon{font-size:28px;margin-bottom:16px}
+.why-title{font-size:16px;font-weight:600;color:var(--white);margin-bottom:8px}
+.why-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7}
+
+/* CTA */
+.cta-section{background:linear-gradient(160deg, var(--blush), var(--lav-pale), var(--rose-pale));position:relative;text-align:center;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(199,125,255,.08), transparent 70%);pointer-events:none}
+
+/* Contact form */
+.contact-section{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt);margin-bottom:8px}
+.form-input,.form-select,.form-textarea{width:100%;padding:14px 18px;border-radius:12px;border:1px solid rgba(180,142,199,.2);background:var(--white);font-family:var(--fb);font-size:14px;color:var(--ink-soft);transition:border-color .2s;outline:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--electric)}
+.form-textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Footer */
+.footer{background:var(--ink);padding:60px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand{font-family:var(--fd);font-size:24px;color:var(--white);letter-spacing:1px;margin-bottom:8px}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:300px;margin-bottom:16px}
+.footer-parent{font-size:11px;color:rgba(255,255,255,.25);font-style:italic}
+.footer-col-title{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .2s}
+.footer-link:hover{color:var(--electric)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav{padding:0 24px} .nav-links{display:none}
+  .hero-content{grid-template-columns:1fr;padding:100px 24px 60px;text-align:center}
+  .hero-h1{font-size:42px} .hero-sub{margin:0 auto 36px} .hero-btns{justify-content:center;flex-wrap:wrap}
+  .hero-visual{margin-top:40px}
+  .container{padding:0 24px}
+  .section-h2{font-size:36px}
+  .steps-grid,.pkg-grid,.brand-grid,.why-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <div class="nav-n">N</div>
+    <span class="nav-name">NOURIÉ</span>
+  </div>
+  <div class="nav-links">
+    <a href="#how" class="nav-link">How It Works</a>
+    <a href="#packages" class="nav-link">Packages</a>
+    <a href="#products" class="nav-link">Products</a>
+    <a href="#why" class="nav-link">Why NOURIÉ</a>
+    <a href="#contact" class="nav-cta">Free Trial</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-orb o1"></div>
+  <div class="hero-bg-orb o2"></div>
+  <div class="hero-bg-orb o3"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">Curated Workplace Amenities</div>
+      <h1 class="hero-h1">Not a vending<br>machine. An <em>experience.</em></h1>
+      <p class="hero-sub">Premium self-service amenity stations featuring wellness drinks, collagen waters, artisan snacks &amp; everyday essentials — custom-branded to feel like part of your space.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Start Free Trial <span>&rarr;</span></a>
+        <a href="#how" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-machine">
+        <div class="hero-machine-screen">
+          <div class="hero-machine-logo">NOURIÉ</div>
+          <div class="hero-machine-sub">Curated Amenities</div>
+        </div>
+        <div class="hero-machine-shelves">
+          <div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div>
+          <div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div>
+          <div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div><div class="hero-product"></div>
+        </div>
+        <div class="hero-machine-tap">Tap to Select</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section style="background:var(--white);padding:32px 0;border-bottom:1px solid rgba(180,142,199,.08)">
+  <div class="container" style="display:flex;justify-content:center;gap:48px;align-items:center;flex-wrap:wrap">
+    <div style="text-align:center"><div style="font-family:var(--fd);font-size:32px;font-weight:300;color:var(--plum)">30</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt)">Day Free Trial</div></div>
+    <div style="width:1px;height:40px;background:var(--lav-pale)"></div>
+    <div style="text-align:center"><div style="font-family:var(--fd);font-size:32px;font-weight:300;color:var(--plum)">20%</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt)">Revenue Share</div></div>
+    <div style="width:1px;height:40px;background:var(--lav-pale)"></div>
+    <div style="text-align:center"><div style="font-family:var(--fd);font-size:32px;font-weight:300;color:var(--plum)">Weekly</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt)">Restocking</div></div>
+    <div style="width:1px;height:40px;background:var(--lav-pale)"></div>
+    <div style="text-align:center"><div style="font-family:var(--fd);font-size:32px;font-weight:300;color:var(--plum)">Custom</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt)">Brand Wrap</div></div>
+    <div style="width:1px;height:40px;background:var(--lav-pale)"></div>
+    <div style="text-align:center"><div style="font-family:var(--fd);font-size:32px;font-weight:300;color:var(--plum)">$0</div><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-lt)">Cost to You</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how">
+  <div class="container">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-h2">Zero cost. Zero risk.<br>You just <em>earn.</em></h2>
+    <p class="section-sub">We handle everything — from installation to weekly restocking. You provide the space, we provide the experience. And you earn a percentage of every sale.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal"><div class="step-num">01</div><div class="step-title">Discovery</div><div class="step-desc">We visit your space, learn your clientele, and recommend the perfect NOURIÉ package. Takes 20 minutes.</div></div>
+      <div class="step-card reveal"><div class="step-num">02</div><div class="step-title">Design &amp; Wrap</div><div class="step-desc">We design a custom machine wrap matching your brand colors, logo, and aesthetic. You approve everything.</div></div>
+      <div class="step-card reveal"><div class="step-num">03</div><div class="step-title">Install &amp; Launch</div><div class="step-desc">We deliver, install, and fully stock the unit. Cashless payment activated. Under 2 hours from start to earning.</div></div>
+      <div class="step-card reveal"><div class="step-num">04</div><div class="step-title">Earn &amp; Enjoy</div><div class="step-desc">We restock weekly. You earn your revenue share monthly. Full maintenance included. Zero effort on your end.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section pkg-section" id="packages">
+  <div class="container">
+    <div class="eyebrow">Packages</div>
+    <h2 class="section-h2">Choose your <em>NOURIÉ</em> model.</h2>
+    <p class="section-sub">All packages include a 30-day free trial, custom branding, cashless payments, weekly restocking, and full maintenance.</p>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-badge" style="background:rgba(111,143,130,.12);color:#6F8F82">Wellness Focus</div>
+        <div class="pkg-name">NOURIÉ Well</div>
+        <div class="pkg-sub">Collagen waters, herbal teas, wellness shots</div>
+        <div class="pkg-trial">FREE 30-DAY TRIAL</div>
+        <div class="pkg-rev" style="color:#6F8F82">15% revenue share</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:#6F8F82"></div><div class="pkg-feature-text">25-item capacity</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:#6F8F82"></div><div class="pkg-feature-text">Vital Proteins, OLIPOP, GT's Kombucha, Poppi, Rishi Tea</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:#6F8F82"></div><div class="pkg-feature-text">Weekly restocking</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:#6F8F82"></div><div class="pkg-feature-text">Custom brand wrap included</div></div>
+        <a href="#contact" class="pkg-cta" style="background:rgba(111,143,130,.1);color:#6F8F82;border:1px solid rgba(111,143,130,.2)">Start Free Trial</a>
+      </div>
+      <div class="pkg-card featured reveal">
+        <div class="pkg-badge" style="background:rgba(199,125,255,.12);color:var(--electric)">Premium Selection</div>
+        <div class="pkg-name">NOURIÉ Gourmet</div>
+        <div class="pkg-sub">Everything in Well + cold brew, kombucha, artisan snacks</div>
+        <div class="pkg-trial">FREE 30-DAY TRIAL</div>
+        <div class="pkg-rev" style="color:var(--electric)">18% revenue share</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--electric)"></div><div class="pkg-feature-text">40-item capacity</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--electric)"></div><div class="pkg-feature-text">La Croix, Hu Kitchen, Chameleon Cold-Brew, RXBar, Chomps</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--electric)"></div><div class="pkg-feature-text">Priority weekly restocking</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--electric)"></div><div class="pkg-feature-text">Custom brand wrap included</div></div>
+        <a href="#contact" class="pkg-cta" style="background:linear-gradient(135deg, var(--plum), var(--electric));color:var(--white)">Start Free Trial</a>
+      </div>
+      <div class="pkg-card reveal">
+        <div class="pkg-badge" style="background:rgba(212,165,116,.12);color:var(--gold)">Full Service</div>
+        <div class="pkg-name">NOURIÉ Essentials</div>
+        <div class="pkg-sub">Everything in Gourmet + personal care, tech, convenience</div>
+        <div class="pkg-trial">FREE 30-DAY TRIAL</div>
+        <div class="pkg-rev" style="color:var(--gold)">20% revenue share</div>
+        <div class="pkg-divider"></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--gold)"></div><div class="pkg-feature-text">50+ item capacity</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--gold)"></div><div class="pkg-feature-text">Kitsch, Native, Burt's Bees, Anker, Dr. Bronner's</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--gold)"></div><div class="pkg-feature-text">Weekly + on-demand restocking</div></div>
+        <div class="pkg-feature"><div class="pkg-dot" style="background:var(--gold)"></div><div class="pkg-feature-text">Dedicated account manager</div></div>
+        <a href="#contact" class="pkg-cta" style="background:rgba(212,165,116,.1);color:var(--gold);border:1px solid rgba(212,165,116,.2)">Start Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section brands-section" id="products">
+  <div class="container">
+    <div class="eyebrow">Featured Products</div>
+    <h2 class="section-h2">Brands your clients<br>already <em>love.</em></h2>
+    <p class="section-sub">We curate from premium, recognized brands — not generic products. Every item is selected to match the standard your space represents.</p>
+    <div class="brand-tabs">
+      <button class="brand-tab active" onclick="showBrands('well',this)">Wellness</button>
+      <button class="brand-tab" onclick="showBrands('gourmet',this)">Gourmet</button>
+      <button class="brand-tab" onclick="showBrands('essentials',this)">Essentials</button>
+    </div>
+    <div id="brands-well" class="brand-grid">
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#6F8F82,#4A6B5E)">VP</div><div><div class="brand-name">Vital Proteins</div><div class="brand-desc">Collagen Water — Strawberry Lemon, 10g collagen</div><div class="brand-price">$4.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#B48EC7,#7B4A8E)">LY</div><div><div class="brand-name">Liquid Youth</div><div class="brand-desc">Sparkling Collagen — Blood Orange, Passion Bliss</div><div class="brand-price">$5.49</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#E8A0BF,#D4A574)">OL</div><div><div class="brand-name">OLIPOP</div><div class="brand-desc">Prebiotic Soda — Vintage Cola, Strawberry Vanilla</div><div class="brand-price">$3.49</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#82A090,#5E7E6E)">GT</div><div><div class="brand-name">GT's Kombucha</div><div class="brand-desc">Organic Raw — Gingerade, Trilogy, Synergy</div><div class="brand-price">$4.29</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#C77DFF,#E8A0BF)">PP</div><div><div class="brand-name">Poppi</div><div class="brand-desc">Prebiotic Soda — Raspberry Rose, Lemon</div><div class="brand-price">$2.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#8FA393,#6B7C6E)">RT</div><div><div class="brand-name">Rishi Tea</div><div class="brand-desc">Organic Sparkling Botanicals — Turmeric, Matcha</div><div class="brand-price">$3.99</div></div></div>
+    </div>
+    <div id="brands-gourmet" class="brand-grid" style="display:none">
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#9B7EAB,#5E3370)">LC</div><div><div class="brand-name">La Croix</div><div class="brand-desc">Sparkling Water — Cucumber, Rose, Tangerine</div><div class="brand-price">$1.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#8C6450,#6E4A38)">HK</div><div><div class="brand-name">Hu Kitchen</div><div class="brand-desc">Dark Chocolate — Cashew Butter, Simple, Almond</div><div class="brand-price">$5.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#6482A0,#4A6680)">RX</div><div><div class="brand-name">RXBar</div><div class="brand-desc">Protein Bars — Coconut Chocolate, Blueberry</div><div class="brand-price">$3.49</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#786450,#5E4A38)">CC</div><div><div class="brand-name">Chameleon Cold-Brew</div><div class="brand-desc">Organic Coffee — Black, Vanilla, Oat Milk</div><div class="brand-price">$4.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#A08C78,#7E6A56)">PE</div><div><div class="brand-name">Purely Elizabeth</div><div class="brand-desc">Granola Clusters — MCT, Collagen Protein</div><div class="brand-price">$4.49</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#965A50,#7A4038)">CH</div><div><div class="brand-name">Chomps</div><div class="brand-desc">Grass-Fed Meat Sticks — Original, Jalapeño</div><div class="brand-price">$2.99</div></div></div>
+    </div>
+    <div id="brands-essentials" class="brand-grid" style="display:none">
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#D4A574,#C8AF8C)">KT</div><div><div class="brand-name">Kitsch</div><div class="brand-desc">Satin Hair Ties — Snag-free, 6-pack</div><div class="brand-price">$3.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#B4AA8C,#968C70)">NV</div><div><div class="brand-name">Native</div><div class="brand-desc">Mini Deodorant — Coconut & Vanilla, Travel Size</div><div class="brand-price">$4.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#BEAA64,#A08C48)">BB</div><div><div class="brand-name">Burt's Bees</div><div class="brand-desc">Lip Balm — Beeswax, Pomegranate</div><div class="brand-price">$2.49</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#788296,#5E6678)">AK</div><div><div class="brand-name">Anker</div><div class="brand-desc">USB-C Cable — Lightning & USB-C, 3ft</div><div class="brand-price">$8.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#8C82A0,#6E6480)">DB</div><div><div class="brand-name">Dr. Bronner's</div><div class="brand-desc">Hand Sanitizer — Lavender, Peppermint</div><div class="brand-price">$3.99</div></div></div>
+      <div class="brand-card"><div class="brand-icon" style="background:linear-gradient(135deg,#A06464,#804A4A)">AD</div><div><div class="brand-name">Advil</div><div class="brand-desc">Pain Relief — Single-Dose Packs, 2ct</div><div class="brand-price">$1.99</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOURIE -->
+<section class="section why-section" id="why">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--glow)">Why NOURIÉ</div>
+    <h2 class="section-h2" style="color:var(--white)">The business case<br>for your <em>space.</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.5)">NOURIÉ isn't just an amenity — it's a revenue stream, a brand statement, and a client experience upgrade in one sleek package.</p>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">&#10024;</div><div class="why-title">Zero Cost, Zero Risk</div><div class="why-desc">Start with a free 30-day trial. If it doesn't work for your space, we remove it. No questions, no charges, no commitment.</div></div>
+      <div class="why-card reveal"><div class="why-icon">&#128176;</div><div class="why-title">Passive Revenue Stream</div><div class="why-desc">You earn a percentage of every sale — deposited monthly. The machine more than earns the space it occupies.</div></div>
+      <div class="why-card reveal"><div class="why-icon">&#128171;</div><div class="why-title">Always Full, Always Fresh</div><div class="why-desc">We restock every week. Your station never looks empty, neglected, or out of stock. We maintain the standard you expect.</div></div>
+      <div class="why-card reveal"><div class="why-icon">&#127775;</div><div class="why-title">Elevates Your Brand</div><div class="why-desc">A custom-wrapped NOURIÉ station tells every client you care about the details. It's not a machine — it's a design element.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="section cta-section" id="contact">
+  <div class="container">
+    <div class="eyebrow">Get Started</div>
+    <h2 class="section-h2">Start your free<br><em>30-day trial.</em></h2>
+    <p class="section-sub" style="margin:0 auto 48px;text-align:center;max-width:500px">No cost. No lease. No commitment. Fill out the form and we'll schedule a discovery visit within 48 hours.</p>
+    <div style="max-width:600px;margin:0 auto;background:var(--white);border-radius:24px;padding:40px;box-shadow:0 20px 60px rgba(61,31,71,.08);border:1px solid rgba(180,142,199,.1);text-align:left">
+      <form id="nourieForm" onsubmit="handleNourieSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Business Name</label><input class="form-input" type="text" placeholder="Your business name" required></div>
+          <div class="form-group"><label class="form-label">Contact Name</label><input class="form-input" type="text" placeholder="Full name" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="you@business.com" required></div>
+          <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(xxx) xxx-xxxx"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Business Type</label>
+          <select class="form-select">
+            <option value="">Select your business type...</option>
+            <option>Spa / Wellness Studio</option>
+            <option>Salon / Beauty</option>
+            <option>Medical / Dental Office</option>
+            <option>Fitness / Gym</option>
+            <option>Hotel / Hospitality</option>
+            <option>Corporate Office</option>
+            <option>Retail Store</option>
+            <option>Co-Working Space</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Package Interest</label>
+          <select class="form-select">
+            <option value="">Which package interests you?</option>
+            <option>NOURIÉ Well (Wellness Focus)</option>
+            <option>NOURIÉ Gourmet (Premium Selection)</option>
+            <option>NOURIÉ Essentials (Full Service)</option>
+            <option>Not sure yet — help me decide</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Message <span style="font-weight:300;color:var(--text-lt)">(optional)</span></label><textarea class="form-textarea" placeholder="Tell us about your space..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:13px">Start My Free Trial <span>&rarr;</span></button>
+      </form>
+      <div id="nourieSuccess" style="display:none;text-align:center;padding:40px 0">
+        <div style="font-size:48px;margin-bottom:16px">&#10024;</div>
+        <h3 style="font-family:var(--fd);font-size:24px;color:var(--plum);margin-bottom:8px">We'll be in touch!</h3>
+        <p style="font-size:14px;color:var(--text-md)">Expect a call within 48 hours to schedule your discovery visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">NOURIÉ</div>
+        <p class="footer-desc">Premium self-service amenity stations featuring wellness drinks, artisan snacks &amp; everyday essentials — custom-branded for your space.</p>
+        <div class="footer-parent">A program by Hearthstone &amp; Co. Workforce Solutions</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:4px">A Division of The Shiylohe Collective</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <a href="#how" class="footer-link">How It Works</a>
+        <a href="#packages" class="footer-link">Packages</a>
+        <a href="#products" class="footer-link">Products</a>
+        <a href="#why" class="footer-link">Why NOURIÉ</a>
+        <a href="#contact" class="footer-link">Free Trial</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:5126300794" class="footer-link">(512) 630-0794</a>
+        <a href="mailto:info@nourie.com" class="footer-link">info@nourie.com</a>
+        <a href="https://hearthstoneandco.com" target="_blank" class="footer-link">hearthstoneandco.com</a>
+        <div style="font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;line-height:1.7">Mon–Fri 8am–6pm CT<br>Sat 9am–2pm CT</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 NOURIÉ by Hearthstone &amp; Co. All rights reserved.</div>
+      <div style="display:flex;gap:20px"><a href="#" class="footer-link" style="font-size:12px">Privacy</a><a href="#" class="footer-link" style="font-size:12px">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Reveal on scroll
+var reveals = document.querySelectorAll('.reveal');
+function checkReveal() {
+  reveals.forEach(function(el) {
+    var top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 80) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', checkReveal);
+checkReveal();
+
+// Brand tabs
+function showBrands(id, btn) {
+  document.querySelectorAll('.brand-grid').forEach(function(g) { g.style.display = 'none'; });
+  document.getElementById('brands-' + id).style.display = 'grid';
+  document.querySelectorAll('.brand-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+}
+
+// Form
+function handleNourieSubmit(e) {
+  e.preventDefault();
+  document.getElementById('nourieForm').style.display = 'none';
+  document.getElementById('nourieSuccess').style.display = 'block';
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
