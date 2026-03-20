@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOURIÉ — Premium Workplace Vending & Amenity Stations | Houston, TX</title>
+<meta name="description" content="NOURIÉ by Hearthstone & Co. installs curated, custom-branded premium vending stations in Houston offices, hospitals, gyms, and luxury apartments. Zero cost. Weekly restocking. Up to 20% revenue share.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0C080F; --plum:#1E0F1C; --plum2:#2D1729; --plum3:#3F2039;
+  --rose:#E8A0A8; --rose2:#F0C4C8;
+  --gold:#D4A574; --gold2:#E8C49A;
+  --irid:#C9B8E8;
+  --chalk:#FDFAF8; --mist:#F0EAE8; --fog:#E6DEDD;
+  --stone:#9A8A90; --stone2:#C5B8BC;
+  --gi:linear-gradient(135deg,#E8A0A8 0%,#C9B8E8 40%,#D4A574 100%);
+  --gp:linear-gradient(160deg,#0C080F 0%,#1E0F1C 50%,#2D1729 100%);
+  --fd:'Cormorant',Georgia,serif;
+  --fb:'Jost',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --rev:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);font-weight:300;color:var(--plum);background:var(--chalk);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:var(--fb);border:none;background:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--plum)}
+::-webkit-scrollbar-thumb{background:var(--rose);border-radius:2px}
+
+/* TYPOGRAPHY */
+.d1{font-family:var(--fd);font-weight:300;font-size:clamp(48px,6.5vw,92px);line-height:1.0;letter-spacing:-.01em}
+.d2{font-family:var(--fd);font-weight:300;font-size:clamp(34px,4.8vw,70px);line-height:1.04}
+.d3{font-family:var(--fd);font-weight:300;font-size:clamp(24px,3.2vw,50px);line-height:1.1}
+.d4{font-family:var(--fd);font-weight:300;font-size:clamp(19px,2.2vw,32px);line-height:1.22}
+.eye{font-family:var(--fb);font-weight:300;font-size:10px;letter-spacing:.38em;text-transform:uppercase}
+.blg{font-size:clamp(14px,1.1vw,16.5px);line-height:1.9;font-weight:300}
+.bsm{font-size:13px;line-height:1.8;font-weight:300}
+em{font-style:italic}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-weight:400;font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:16px 36px;border-radius:100px;transition:all .4s var(--ease);white-space:nowrap;cursor:pointer}
+.btn-gold{background:var(--gi);background-size:200%;color:var(--plum);box-shadow:0 8px 36px rgba(212,165,116,.3);animation:shimmer 5s ease infinite}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 52px rgba(212,165,116,.45)}
+.btn-dark{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--rose2);backdrop-filter:blur(12px)}
+.btn-dark:hover{background:rgba(255,255,255,.14)}
+.btn-outline{background:transparent;border:1.5px solid var(--rose);color:var(--rose)}
+.btn-outline:hover{background:var(--rose);color:var(--plum)}
+.btn-plum{background:var(--plum);border:1px solid var(--plum3);color:var(--rose2)}
+.btn-plum:hover{background:var(--plum2)}
+.btn-w{width:100%;justify-content:center}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 5vw;height:72px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+#nav.scrolled{background:rgba(12,8,15,.94);backdrop-filter:blur(24px);height:60px;border-bottom:1px solid rgba(232,160,168,.1)}
+.nav-logo{font-family:var(--fd);font-weight:300;font-size:28px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose2)}
+.nav-logo em{color:var(--gold);font-style:italic}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(240,196,200,.42);transition:color .3s;font-weight:300}
+.nav-links a:hover{color:var(--rose2)}
+.nav-cta{padding:10px 22px;border-radius:100px;background:linear-gradient(135deg,rgba(232,160,168,.16),rgba(212,165,116,.1));border:1px solid rgba(232,160,168,.28);color:var(--rose2)!important;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;transition:all .35s!important}
+.nav-cta:hover{background:var(--gi)!important;color:var(--plum)!important;border-color:transparent!important}
+.hbg{display:none;flex-direction:column;gap:5px;padding:4px}
+.hbg span{display:block;width:22px;height:1px;background:var(--rose2);transition:all .3s}
+.hbg.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+#mob{display:none;position:fixed;inset:0;z-index:499;background:var(--ink);flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .4s}
+#mob.open{opacity:1;pointer-events:all}
+#mob a{font-family:var(--fd);font-size:36px;color:var(--rose2);transition:color .3s}
+#mob a:hover{color:var(--gold)}
+
+/* LAYOUT */
+.sec{padding:110px 5vw}
+.si{max-width:1280px;margin:0 auto}
+.sh{margin-bottom:72px}
+.shc{text-align:center}
+.ruled{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.rl{width:36px;height:1.5px;background:var(--gi);border-radius:1px;flex-shrink:0}
+.pg{display:none}.pg.active{display:block}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--gp);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:breathe 9s ease-in-out infinite}
+.o1{width:680px;height:680px;background:radial-gradient(circle,rgba(201,184,232,.22),transparent 68%);top:-160px;right:-80px}
+.o2{width:480px;height:480px;background:radial-gradient(circle,rgba(232,160,168,.18),transparent 68%);bottom:-60px;left:-60px;animation-delay:-4s}
+.o3{width:280px;height:280px;background:radial-gradient(circle,rgba(212,165,116,.13),transparent 68%);top:40%;right:28%;animation-delay:-7s}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hgrid{position:absolute;inset:0;pointer-events:none;opacity:.035}
+.hgrain{position:absolute;inset:0;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+
+.hw{flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:140px 5vw 60px;max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hpre{display:flex;align-items:center;gap:12px;margin-bottom:26px;animation:fadeUp .8s var(--rev) .1s both}
+.hpl{width:34px;height:1.5px;background:var(--gi);border-radius:1px}
+.htitle{color:var(--rose2);margin-bottom:18px;animation:fadeUp .9s var(--rev) .25s both}
+.htitle em{background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hsub{color:rgba(240,196,200,.48);font-size:16px;line-height:1.9;max-width:480px;margin-bottom:40px;animation:fadeUp .9s var(--rev) .4s both}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .9s var(--rev) .54s both}
+.htrust{display:flex;gap:20px;flex-wrap:wrap;margin-top:34px;animation:fadeUp .9s var(--rev) .68s both}
+.tp{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,196,200,.28)}
+.td{width:4px;height:4px;border-radius:50%;background:var(--gi);flex-shrink:0}
+
+.hr{display:flex;align-items:center;justify-content:center;animation:fadeRight 1.1s var(--rev) .45s both;position:relative}
+.hmach{position:relative;display:flex;justify-content:center}
+.mimg{width:260px;border-radius:22px;box-shadow:0 48px 110px rgba(0,0,0,.65),0 0 0 1px rgba(232,160,168,.16);animation:float 5.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.fc{position:absolute;background:rgba(255,255,255,.1);backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.17);border-radius:16px;padding:13px 17px}
+.fcl{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,196,200,.38);margin-bottom:3px}
+.fcv{font-family:var(--fd);font-size:24px;color:var(--rose2);line-height:1}
+.fcs{font-size:9px;color:rgba(240,196,200,.26);margin-top:2px}
+.fcr{display:flex;align-items:center;gap:9px}
+.fci{width:28px;height:28px;border-radius:9px;background:var(--gi);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.fcn{font-size:11px;font-weight:400;color:rgba(240,196,200,.82)}
+.fct{font-size:9px;color:rgba(240,196,200,.28)}
+
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(232,160,168,.07);position:relative;z-index:2;animation:fadeUp .8s var(--rev) .88s both}
+.hstat{padding:22px 5vw;text-align:center;border-right:1px solid rgba(232,160,168,.06);background:rgba(12,8,15,.55);backdrop-filter:blur(20px)}
+.hstat:last-child{border-right:none}
+.hsn{font-family:var(--fd);font-size:clamp(26px,3.2vw,42px);font-weight:300;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hsl{font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:rgba(240,196,200,.2);margin-top:6px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:translateX(0)}}
+
+/* TICKER */
+#ticker{background:var(--ink);padding:16px 0;overflow:hidden;border-top:1px solid rgba(232,160,168,.07);border-bottom:1px solid rgba(232,160,168,.07)}
+.tk{display:flex;gap:50px;animation:tk 32s linear infinite;width:max-content}
+.ti{font-family:var(--fd);font-size:13px;font-style:italic;color:rgba(212,165,116,.28);white-space:nowrap;letter-spacing:.07em}
+.ts{color:var(--rose);opacity:.25;font-size:9px;line-height:2}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* CONCEPT */
+#concept{background:var(--chalk)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
+.cvis{position:relative;height:540px}
+.cmain{position:absolute;top:0;left:0;width:82%;height:87%;border-radius:24px;overflow:hidden;box-shadow:0 32px 88px rgba(30,15,28,.13)}
+.cmain img{width:100%;height:100%;object-fit:cover}
+.cacc{position:absolute;bottom:0;right:0;width:52%;height:50%;border-radius:20px;overflow:hidden;box-shadow:0 16px 52px rgba(30,15,28,.13);border:3px solid white}
+.cacc img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.cbadge{position:absolute;top:44%;right:-20px;z-index:10;background:white;border-radius:16px;padding:15px 18px;box-shadow:0 14px 48px rgba(30,15,28,.11);display:flex;align-items:center;gap:11px}
+.cbico{width:36px;height:36px;border-radius:11px;background:var(--gi);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.cbt{font-size:12.5px;font-weight:500;color:var(--plum)}
+.cbb{font-size:10px;color:var(--stone2)}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:34px}
+.pill{padding:21px;border-radius:16px;background:white;border:1.5px solid var(--fog);transition:all .35s;cursor:default}
+.pill:hover{border-color:var(--rose2);box-shadow:0 10px 38px rgba(232,160,168,.1);transform:translateY(-3px)}
+.pico{font-size:21px;margin-bottom:9px}
+.pt{font-size:12px;font-weight:500;color:var(--plum);margin-bottom:3px;letter-spacing:.04em}
+.pd{font-size:12px;color:var(--stone);line-height:1.65}
+
+/* MACHINE */
+#machine{background:var(--plum);position:relative;overflow:hidden}
+.mo1{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(201,184,232,.1),transparent 70%);top:-140px;right:-80px;filter:blur(110px);pointer-events:none}
+.mo2{position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,168,.07),transparent 70%);bottom:-70px;left:-50px;filter:blur(90px);pointer-events:none}
+#machine .eye{color:rgba(232,160,168,.42)}
+#machine .d2{color:var(--rose2)}
+#machine .blg{color:rgba(240,196,200,.4)}
+
+.mhero{display:grid;grid-template-columns:1.15fr 1fr;gap:68px;align-items:center;margin-top:72px}
+.mwrap{position:relative}
+.mimg2{width:100%;border-radius:22px;box-shadow:0 44px 110px rgba(0,0,0,.55);border:1px solid rgba(232,160,168,.12)}
+.mglow{position:absolute;inset:0;border-radius:22px;background:radial-gradient(ellipse at 35% 25%,rgba(201,184,232,.1),transparent 55%);pointer-events:none}
+.spgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.spc{padding:17px 19px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);transition:all .35s}
+.spc:hover{background:rgba(255,255,255,.09);border-color:rgba(232,160,168,.2)}
+.spl{font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+.spv{font-family:var(--fd);font-size:20px;color:var(--rose2)}
+.sps{font-size:11px;color:rgba(240,196,200,.27);margin-top:2px}
+
+.mduo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
+.dcard{border-radius:20px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.dcard img{width:100%;display:block}
+.dcap{padding:20px 22px}
+.dct{font-family:var(--fd);font-size:19px;color:var(--rose2);margin-bottom:5px}
+.dcd{font-size:12px;color:rgba(240,196,200,.34);line-height:1.7}
+
+.mwrap2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+.wimg{width:100%;border-radius:20px;box-shadow:0 32px 84px rgba(0,0,0,.5);border:1px solid rgba(232,160,168,.18)}
+.wfeat{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px}
+.wfico{width:36px;height:36px;border-radius:11px;background:rgba(232,160,168,.14);border:1px solid rgba(232,160,168,.2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:2px}
+.wft{font-size:13px;font-weight:500;color:var(--rose2);margin-bottom:3px}
+.wfd{font-size:12px;color:rgba(240,196,200,.34);line-height:1.65}
+
+.sstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.04);border-radius:14px;overflow:hidden;margin-top:60px}
+.ssi{padding:20px 14px;text-align:center;background:rgba(255,255,255,.03);transition:background .3s}
+.ssi:hover{background:rgba(255,255,255,.07)}
+.ssico{font-size:22px;margin-bottom:7px}
+.ssl{font-size:8px;letter-spacing:.17em;text-transform:uppercase;color:var(--rose);margin-bottom:3px}
+.ssv{font-family:var(--fd);font-size:15px;color:var(--rose2)}
+
+/* HOW */
+#how{background:var(--mist)}
+.bmodel{border-radius:18px;overflow:hidden;box-shadow:0 18px 60px rgba(30,15,28,.1);border:1px solid var(--fog);margin-bottom:68px}
+.bmodel img{width:100%;display:block}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.steps::before{content:'';position:absolute;top:37px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--rose2),var(--gold2),var(--irid),transparent);opacity:.16;z-index:0}
+.step{background:white;border-radius:20px;padding:38px 28px;border:1.5px solid var(--fog);position:relative;z-index:1;transition:all .4s}
+.step:hover{border-color:rgba(232,160,168,.36);transform:translateY(-6px);box-shadow:0 22px 68px rgba(30,15,28,.1)}
+.stn{font-family:var(--fd);font-size:68px;font-weight:300;line-height:1;margin-bottom:16px;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.18;transition:opacity .4s}
+.step:hover .stn{opacity:.32}
+.stco{font-size:26px;margin-bottom:14px}
+.stt{font-family:var(--fd);font-size:21px;color:var(--plum);margin-bottom:9px}
+.std{font-size:13px;color:var(--stone);line-height:1.8}
+
+/* CATALOG */
+#catalog{background:var(--chalk)}
+.cintro{display:grid;grid-template-columns:1fr 1.4fr;gap:84px;align-items:center;margin-bottom:90px}
+.ctags{display:flex;flex-direction:column;gap:11px;margin-top:30px}
+.ctag{display:flex;align-items:center;gap:12px;padding:13px 17px;border-radius:11px;border-left:3px solid;transition:transform .3s;cursor:default}
+.ctag:hover{transform:translateX(4px)}
+.ctag.w{background:rgba(85,120,90,.07);border-color:#4A7A50}
+.ctag.g{background:rgba(130,80,140,.07);border-color:#8C4E9A}
+.ctag.e{background:rgba(180,140,80,.07);border-color:#A07830}
+.ctag-ico{font-size:17px}
+.ctag-n{font-size:11px;font-weight:500;letter-spacing:.05em}
+.ctag-d{font-size:12px;color:var(--stone)}
+.ctag.w .ctag-n{color:#4A7A50}
+.ctag.g .ctag-n{color:#8C4E9A}
+.ctag.e .ctag-n{color:#A07830}
+.cintroimg{border-radius:20px;overflow:hidden;box-shadow:0 26px 76px rgba(30,15,28,.11);border:1px solid var(--fog)}
+.cintroimg img{width:100%;display:block}
+
+.ctabs{display:flex;gap:4px;margin-bottom:42px;background:var(--mist);padding:5px;border-radius:100px;width:fit-content}
+.ctab{padding:12px 26px;border-radius:100px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);transition:all .3s;font-weight:400}
+.ctab.active{background:var(--plum);color:var(--rose2);box-shadow:0 4px 16px rgba(30,15,28,.24)}
+.ctab:hover:not(.active){color:var(--plum)}
+.cpanel{display:none}.cpanel.active{display:block}
+.cl{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.cimg{border-radius:16px;overflow:hidden;box-shadow:0 14px 52px rgba(30,15,28,.1);border:1px solid var(--fog)}
+.cimg img{width:100%;display:block}
+.plist{display:flex;flex-direction:column;gap:11px}
+.prow{background:white;border-radius:14px;padding:16px 18px;border:1.5px solid var(--fog);transition:all .35s;display:flex;align-items:center;gap:15px;cursor:default}
+.prow:hover{border-color:var(--rose2);box-shadow:0 8px 30px rgba(30,15,28,.07);transform:translateX(5px)}
+.psw{width:44px;height:44px;border-radius:11px;flex-shrink:0}
+.pi{flex:1}
+.pb{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:1px}
+.pn{font-family:var(--fd);font-size:17px;color:var(--plum);margin-bottom:1px}
+.pd{font-size:11px;color:var(--stone);line-height:1.5}
+.pp{font-family:var(--fd);font-size:17px;color:var(--plum);flex-shrink:0}
+
+/* PACKAGES */
+#packages{background:var(--mist)}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:70px}
+.pkg{border-radius:22px;padding:46px 32px;background:white;border:1.5px solid var(--fog);position:relative;transition:all .38s}
+.pkg:hover{transform:translateY(-5px);box-shadow:0 20px 68px rgba(30,15,28,.1)}
+.pkg.feat{background:var(--gp);border-color:transparent;box-shadow:0 22px 70px rgba(12,8,15,.34)}
+.pkbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gi);color:var(--plum);font-size:8.5px;letter-spacing:.17em;text-transform:uppercase;padding:5px 20px;border-radius:100px;white-space:nowrap;font-weight:500}
+.pkeye{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:7px}
+.pkname{font-family:var(--fd);font-size:27px;color:var(--plum);margin-bottom:6px}
+.feat .pkname{color:var(--rose2)}
+.pksub{font-size:13px;color:var(--stone);margin-bottom:22px}
+.feat .pksub{color:rgba(240,196,200,.33)}
+.pkpct{font-family:var(--fd);font-size:56px;line-height:1;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pkpl{font-size:9px;letter-spacing:.19em;text-transform:uppercase;color:var(--stone);margin-bottom:22px}
+.feat .pkpl{color:rgba(240,196,200,.27)}
+.pkul{margin-bottom:30px}
+.pkul li{font-size:13px;color:var(--stone);padding:8px 0;border-bottom:1px solid var(--fog);display:flex;align-items:center;gap:8px}
+.feat .pkul li{color:rgba(240,196,200,.5);border-bottom-color:rgba(255,255,255,.06)}
+.pkul li::before{content:'✦';font-size:7.5px;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
+
+/* WHY */
+#why{background:var(--plum2);position:relative;overflow:hidden}
+.wm1,.wm2{position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px)}
+.wm1{width:640px;height:640px;background:rgba(201,184,232,.08);top:-120px;right:-60px}
+.wm2{width:440px;height:440px;background:rgba(232,160,168,.06);bottom:-70px;left:40px}
+#why .eye{color:rgba(232,160,168,.42)}
+#why .d2{color:var(--rose2)}
+.bengrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.03);margin-top:70px;border:1px solid rgba(255,255,255,.04);border-radius:22px;overflow:hidden}
+.ben{padding:42px 32px;background:var(--plum2);transition:all .4s;position:relative;overflow:hidden}
+.ben::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gi);transform:scaleX(0);transition:transform .45s var(--ease);transform-origin:left}
+.ben:hover::before{transform:scaleX(1)}
+.ben:hover{background:rgba(255,255,255,.04)}
+.bico{font-size:26px;margin-bottom:18px}
+.bt{font-family:var(--fd);font-size:22px;color:var(--rose2);margin-bottom:11px}
+.bd{font-size:13px;color:rgba(240,196,200,.34);line-height:1.8}
+
+/* INDUSTRIES */
+#industries{background:var(--chalk)}
+.indgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:70px}
+.indc{background:white;border-radius:18px;padding:30px 20px;text-align:center;border:1.5px solid var(--fog);transition:all .38s;position:relative;overflow:hidden;cursor:default}
+.indc::after{content:'';position:absolute;inset:0;background:var(--gi);opacity:0;transition:opacity .38s;border-radius:16px}
+.indc:hover::after{opacity:1}
+.indc:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(212,165,116,.18);border-color:transparent}
+.iico{font-size:30px;margin-bottom:12px;position:relative;z-index:1}
+.iname{font-family:var(--fd);font-size:17px;color:var(--plum);margin-bottom:5px;transition:color .3s;position:relative;z-index:1}
+.idesc{font-size:12px;color:var(--stone);line-height:1.65;transition:color .3s;position:relative;z-index:1}
+.indc:hover .iname,.indc:hover .idesc{color:var(--plum)}
+
+/* DIFF */
+#diff{background:var(--plum);padding:110px 5vw;position:relative;overflow:hidden}
+.dg{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(255,255,255,.04);border-radius:20px;overflow:hidden;margin-top:70px}
+.dc{padding:38px 26px;background:var(--plum2);border-top:3px solid transparent;transition:all .4s}
+.dc:nth-child(1){border-color:var(--rose)}
+.dc:nth-child(2){border-color:var(--gold)}
+.dc:nth-child(3){border-color:var(--irid)}
+.dc:nth-child(4){border-color:var(--rose2)}
+.dc:nth-child(5){border-color:var(--gold2)}
+.dc:hover{background:rgba(255,255,255,.05);transform:translateY(-4px)}
+.dn{font-family:var(--fd);font-size:42px;font-weight:300;color:rgba(240,196,200,.07);line-height:1;margin-bottom:12px}
+.dt{font-size:11px;font-weight:500;color:var(--rose2);letter-spacing:.06em;margin-bottom:9px;text-transform:uppercase}
+.dd{font-size:12px;color:rgba(240,196,200,.33);line-height:1.75}
+
+/* TESTI */
+#testi{background:linear-gradient(180deg,var(--mist),var(--chalk))}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:70px}
+.tc{background:white;border-radius:22px;padding:40px 32px;box-shadow:0 8px 48px rgba(30,15,28,.06);border:1.5px solid var(--fog);transition:all .38s}
+.tc:hover{transform:translateY(-6px);box-shadow:0 22px 68px rgba(30,15,28,.1)}
+.tstars{display:flex;gap:3px;margin-bottom:15px}
+.tstar{font-size:12px;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tq{font-family:var(--fd);font-size:54px;font-weight:300;line-height:.8;margin-bottom:11px;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.42}
+.tt{font-family:var(--fd);font-size:16.5px;font-style:italic;color:var(--plum);line-height:1.72;margin-bottom:22px}
+.trl{width:26px;height:1.5px;background:var(--gi);margin-bottom:13px;border-radius:1px}
+.tname{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--rose);margin-bottom:2px;font-weight:500}
+.trole{font-size:12px;color:var(--stone2)}
+
+/* CTA BAND */
+#ctaband{background:var(--plum);padding:116px 5vw;text-align:center;position:relative;overflow:hidden}
+.co1{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,168,.14),transparent 70%);top:-240px;left:50%;transform:translateX(-50%);filter:blur(88px);pointer-events:none}
+.co2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(201,184,232,.1),transparent 70%);bottom:-90px;right:80px;filter:blur(70px);pointer-events:none}
+.ctai{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.ctabtns{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:46px;flex-wrap:wrap}
+
+/* PAGE HEADERS */
+.pghdr{background:var(--plum);min-height:320px;display:flex;align-items:flex-end;padding:110px 5vw 60px;position:relative;overflow:hidden}
+.pghdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 90% at 70% 40%,rgba(232,160,168,.11),transparent)}
+.phorb{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,184,232,.15),transparent 70%);top:-70px;right:0;filter:blur(70px);pointer-events:none}
+.phc{position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%}
+.pghdr .d2{color:var(--rose2)}
+.pghdr .blg{color:rgba(240,196,200,.36);max-width:480px;margin-top:10px}
+
+/* FORMS */
+.flayout{display:grid;grid-template-columns:1fr 1.5fr;gap:92px;align-items:start}
+.fii{margin-bottom:24px}
+.fil{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+.fiv{font-size:14.5px;color:var(--plum);font-weight:300}
+.fprom{background:white;border-radius:16px;padding:22px 26px;border-left:3px solid var(--rose);margin-top:28px}
+.fproml{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:7px}
+.fpromt{font-size:13px;color:var(--stone);line-height:1.8}
+.fimgw{margin-top:28px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(30,15,28,.09)}
+.fimgw img{width:100%;display:block}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fl{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone2)}
+.fi,.fsel,.fta{background:white;border:1.5px solid var(--fog);border-radius:13px;padding:13px 17px;font-family:var(--fb);font-size:13px;font-weight:300;color:var(--plum);outline:none;transition:all .3s;appearance:none;width:100%}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(232,160,168,.1)}
+.fta{resize:vertical;min-height:108px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.ffull{grid-column:1/-1}
+.fnote{font-size:11px;color:var(--stone2);margin-top:11px;line-height:1.65}
+.fok{background:var(--gp);color:var(--rose2);padding:19px 24px;border-radius:14px;font-size:13px;margin-top:15px;display:none;border:1px solid rgba(232,160,168,.17)}
+
+/* ABOUT */
+.aboutbody p{font-size:15.5px;line-height:1.92;color:var(--stone);margin-bottom:19px}
+.avals{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:72px}
+.av{padding:30px 24px;border-radius:18px;background:white;border:1.5px solid var(--fog);position:relative;overflow:hidden}
+.av::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gi)}
+.avt{font-family:var(--fd);font-size:21px;color:var(--plum);margin-bottom:9px}
+.avd{font-size:13px;color:var(--stone);line-height:1.7}
+.aparent{background:var(--plum);border-radius:22px;padding:56px;margin-top:76px;display:flex;gap:52px;align-items:center}
+.apdiv{width:1px;height:96px;background:rgba(232,160,168,.17);flex-shrink:0}
+.aps .d4{color:var(--rose2);margin-bottom:11px}
+.aps p{font-size:13px;color:rgba(240,196,200,.34);line-height:1.88}
+
+/* FAQ */
+.faqitem{border-bottom:1.5px solid var(--fog)}
+.faqq{font-family:var(--fd);font-size:18.5px;color:var(--plum);padding:21px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .3s}
+.faqq:hover{color:var(--rose)}
+.faqico{font-size:21px;color:var(--rose);transition:transform .35s}
+.faqitem.open .faqico{transform:rotate(45deg)}
+.faqa{font-size:13px;color:var(--stone);line-height:1.8;padding-bottom:21px;display:none}
+.faqitem.open .faqa{display:block}
+
+/* FOOTER */
+#foot{background:var(--ink);padding:76px 5vw 34px}
+.fti{max-width:1280px;margin:0 auto}
+.ftop{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.05)}
+.ftlogo{font-family:var(--fd);font-size:28px;font-weight:300;letter-spacing:.17em;text-transform:uppercase;margin-bottom:12px;background:var(--gi);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ftdesc{font-size:12px;color:rgba(255,255,255,.2);line-height:1.8;max-width:220px}
+.ftattr{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,160,168,.22);margin-top:14px}
+.ftct{font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:rgba(232,160,168,.38);margin-bottom:17px}
+.ftcol a{display:block;font-size:13px;color:rgba(255,255,255,.22);margin-bottom:9px;transition:color .3s}
+.ftcol a:hover{color:rgba(255,255,255,.6)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:11px}
+.fcopy{font-size:10px;color:rgba(255,255,255,.13);letter-spacing:.05em}
+.fleg{display:flex;gap:18px}
+.fleg a{font-size:10px;color:rgba(255,255,255,.13);transition:color .3s}
+.fleg a:hover{color:rgba(255,255,255,.4)}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--rev),transform .9s var(--rev)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hw,.cgrid,.mhero,.mwrap2,.cintro,.flayout{grid-template-columns:1fr}
+  .hr{display:none}
+  .cvis{height:300px}
+  .ftop{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .bengrid{grid-template-columns:1fr 1fr}
+  .mduo{grid-template-columns:1fr}
+  .dg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .sec{padding:80px 5vw}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  #mob{display:flex}
+  .indgrid{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:1fr}
+  .hstats{grid-template-columns:1fr 1fr}
+  .pkgs{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .sstrip{grid-template-columns:1fr 1fr 1fr}
+  .avals{grid-template-columns:1fr 1fr}
+  .aparent{flex-direction:column;gap:24px;padding:34px}
+  .apdiv{width:56px;height:1px}
+  .dg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .bengrid{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr;gap:32px}
+  .fgrid{grid-template-columns:1fr}
+  .hbtns{flex-direction:column;align-items:flex-start}
+  .avals{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .sstrip{grid-template-columns:1fr 1fr}
+  .dg{grid-template-columns:1fr}
+  .cl{grid-template-columns:1fr}
+  .indgrid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="SP('home');return false">Nouri<em>é</em></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="GS('machine');return false">The Station</a></li>
+    <li><a href="#" onclick="GS('catalog');return false">Products</a></li>
+    <li><a href="#" onclick="GS('how');return false">How It Works</a></li>
+    <li><a href="#" onclick="SP('biz');return false">For Businesses</a></li>
+    <li><a href="#" onclick="GS('industries');return false">Industries</a></li>
+    <li><a href="#" onclick="SP('about');return false">About</a></li>
+    <li><a href="#" onclick="SP('contact');return false">Contact</a></li>
+    <li><a href="#" onclick="SP('request');return false" class="nav-cta">Request a Station</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<nav id="mob">
+  <a href="#" onclick="SP('home');CM()">Home</a>
+  <a href="#" onclick="GS('machine');CM()">The Station</a>
+  <a href="#" onclick="GS('catalog');CM()">Products</a>
+  <a href="#" onclick="GS('how');CM()">How It Works</a>
+  <a href="#" onclick="SP('biz');CM();return false">For Businesses</a>
+  <a href="#" onclick="GS('industries');CM()">Industries</a>
+  <a href="#" onclick="SP('about');CM();return false">About</a>
+  <a href="#" onclick="SP('contact');CM();return false">Contact</a>
+  <a href="#" onclick="SP('request');CM();return false">Request a Station</a>
+</nav>
+
+<!-- HOME -->
+<div id="pg-home" class="pg active">
+
+<section id="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <svg class="hgrid" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;pointer-events:none">
+    <defs><pattern id="g" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M 70 0 L 0 0 0 70" fill="none" stroke="rgba(232,160,168,1)" stroke-width=".3"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#g)"/>
+  </svg>
+  <div class="hgrain"></div>
+  <div class="hw">
+    <div>
+      <div class="hpre"><div class="hpl"></div><span class="eye" style="color:rgba(240,196,200,.42)">A Hearthstone &amp; Co. Program · Houston, TX</span></div>
+      <h1 class="d1 htitle">Not a vending<br>machine.<em>An experience.</em></h1>
+      <p class="hsub">NOURIÉ installs fully managed, custom-branded premium amenity stations in your workplace — at zero cost. Wellness drinks, artisan snacks, beauty essentials. Your team gets better. You earn passive revenue.</p>
+      <div class="hbtns">
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Request Your Free Station</a>
+        <a href="#" onclick="GS('how');return false" class="btn btn-dark">See How It Works</a>
+      </div>
+      <div class="htrust">
+        <div class="tp"><div class="td"></div>$0 Cost</div>
+        <div class="tp"><div class="td"></div>30-Day Trial</div>
+        <div class="tp"><div class="td"></div>Weekly Restock</div>
+        <div class="tp"><div class="td"></div>Up to 20% Revenue Share</div>
+      </div>
+    </div>
+    <div class="hr">
+      <div class="hmach">
+        <img src="images/wrap.jpg" class="mimg" alt="NOURIÉ Vendify Station">
+        <div class="fc" style="top:70px;left:-140px;animation:float 4.8s ease-in-out infinite">
+          <div class="fcr"><div class="fci">🌿</div><div><div class="fcn">Vital Proteins</div><div class="fct">Collagen Water · $4.99</div></div></div>
+        </div>
+        <div class="fc" style="top:210px;right:-140px;animation:float 5.8s ease-in-out .9s infinite">
+          <div class="fcl">Revenue Share</div><div class="fcv">20%</div><div class="fcs">monthly passive income</div>
+        </div>
+        <div class="fc" style="bottom:160px;left:-130px;animation:float 4.2s ease-in-out 1.8s infinite">
+          <div class="fcr"><div class="fci">✨</div><div><div class="fcn">OLIPOP</div><div class="fct">Prebiotic Soda · $3.49</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hstat"><div class="hsn">$0</div><div class="hsl">Cost to You</div></div>
+    <div class="hstat"><div class="hsn">30</div><div class="hsl">Day Free Trial</div></div>
+    <div class="hstat"><div class="hsn">20%</div><div class="hsl">Revenue Share</div></div>
+    <div class="hstat"><div class="hsn">Weekly</div><div class="hsl">Restocking</div></div>
+  </div>
+</section>
+
+<div id="ticker">
+  <div class="tk">
+    <span class="ti">Vital Proteins</span><span class="ts">✦</span><span class="ti">OLIPOP</span><span class="ts">✦</span><span class="ti">GT's Kombucha</span><span class="ts">✦</span><span class="ti">Celsius</span><span class="ts">✦</span><span class="ti">Liquid IV</span><span class="ts">✦</span><span class="ti">RXBar</span><span class="ts">✦</span><span class="ti">Hu Kitchen</span><span class="ts">✦</span><span class="ti">Kiehl's</span><span class="ts">✦</span><span class="ti">Native</span><span class="ts">✦</span><span class="ti">Kitsch</span><span class="ts">✦</span><span class="ti">LMNT</span><span class="ts">✦</span><span class="ti">Poppi</span><span class="ts">✦</span><span class="ti">Chomps</span><span class="ts">✦</span><span class="ti">Touchland</span><span class="ts">✦</span><span class="ti">Anker</span><span class="ts">✦</span><span class="ti">Siete</span><span class="ts">✦</span><span class="ti">Purely Elizabeth</span><span class="ts">✦</span>
+    <span class="ti">Vital Proteins</span><span class="ts">✦</span><span class="ti">OLIPOP</span><span class="ts">✦</span><span class="ti">GT's Kombucha</span><span class="ts">✦</span><span class="ti">Celsius</span><span class="ts">✦</span><span class="ti">Liquid IV</span><span class="ts">✦</span><span class="ti">RXBar</span><span class="ts">✦</span><span class="ti">Hu Kitchen</span><span class="ts">✦</span><span class="ti">Kiehl's</span><span class="ts">✦</span><span class="ti">Native</span><span class="ts">✦</span><span class="ti">Kitsch</span><span class="ts">✦</span><span class="ti">LMNT</span><span class="ts">✦</span><span class="ti">Poppi</span><span class="ts">✦</span><span class="ti">Chomps</span><span class="ts">✦</span><span class="ti">Touchland</span><span class="ts">✦</span><span class="ti">Anker</span><span class="ts">✦</span><span class="ti">Siete</span><span class="ts">✦</span><span class="ti">Purely Elizabeth</span><span class="ts">✦</span>
+  </div>
+</div>
+
+<section id="concept" class="sec">
+  <div class="si cgrid">
+    <div class="cvis rv">
+      <div class="cmain"><img src="images/machine-dark.png" alt="NOURIÉ station interior"></div>
+      <div class="cacc"><img src="images/bmodel.png" alt="NOURIÉ business model"></div>
+      <div class="cbadge"><div class="cbico">💰</div><div><div class="cbt">Up to 20% Revenue</div><div class="cbb">Monthly passive income</div></div></div>
+    </div>
+    <div class="rv d2">
+      <div class="ruled"><div class="rl"></div><span class="eye" style="color:var(--rose)">The NOURIÉ Concept</span></div>
+      <h2 class="d3" style="color:var(--plum);margin-bottom:16px">Built for the spaces your people spend 40 hours<em> a week in.</em></h2>
+      <p class="blg" style="color:var(--stone);margin-bottom:26px">Your office, clinic, gym, or building says something about who you are. A generic vending machine in the corner says the wrong thing. NOURIÉ says you care about every detail — the coffee, the snacks, the experience of being here.</p>
+      <div class="pillars">
+        <div class="pill"><div class="pico">🌿</div><div class="pt">Premium</div><div class="pd">Recognizable wellness brands. Never generic items.</div></div>
+        <div class="pill"><div class="pico">✦</div><div class="pt">Minimal</div><div class="pd">Design that complements your space, not fights it.</div></div>
+        <div class="pill"><div class="pico">🏨</div><div class="pt">Hospitality</div><div class="pd">Managed weekly. Zero burden on you.</div></div>
+        <div class="pill"><div class="pico">💰</div><div class="pt">Revenue</div><div class="pd">Earn passive monthly share from every sale.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="machine" class="sec">
+  <div class="mo1"></div><div class="mo2"></div>
+  <div class="si" style="position:relative;z-index:1">
+    <div class="sh rv">
+      <div class="ruled"><div class="rl" style="background:var(--gi)"></div><span class="eye">The NOURIÉ Station</span></div>
+      <h2 class="d2">Not a machine.<em> A brand touchpoint.</em></h2>
+      <p class="blg" style="max-width:580px;margin-top:12px">Every NOURIÉ unit is a Vendify Model 1.0 — 60 slots, touchscreen, refrigerated, anti-fog double-pane glass. Custom wrapped in your brand. Impossible to overlook.</p>
+    </div>
+    <div class="mhero">
+      <div class="mwrap rv">
+        <img src="images/wrap.jpg" class="mimg2" alt="NOURIÉ Vendify Station — Custom Branded Wrap">
+        <div class="mglow"></div>
+      </div>
+      <div class="rv d2">
+        <div class="ruled" style="margin-bottom:16px"><div class="rl" style="background:var(--gi)"></div><span class="eye">Vendify Model 1.0</span></div>
+        <h3 class="d3" style="color:var(--rose2);margin-bottom:14px">Custom-wrapped to match your<em> aesthetic.</em></h3>
+        <p class="blg" style="margin-bottom:26px">The machine is wrapped in your brand colors, logo, and design language. It doesn't look like a vending machine — it looks like it was always meant to be there.</p>
+        <div class="spgrid">
+          <div class="spc"><div class="spl">Capacity</div><div class="spv">60 Slots</div><div class="sps">25–50+ items stocked</div></div>
+          <div class="spc"><div class="spl">Display</div><div class="spv">Touchscreen</div><div class="sps">Full-color product UI</div></div>
+          <div class="spc"><div class="spl">Refrigerated</div><div class="spv">Yes</div><div class="sps">Anti-fog double pane</div></div>
+          <div class="spc"><div class="spl">Payment</div><div class="spv">Cashless</div><div class="sps">Apple Pay · Google Pay · Tap</div></div>
+          <div class="spc"><div class="spl">Footprint</div><div class="spv">24" × 30"</div><div class="sps">Compact, lobby-ready</div></div>
+          <div class="spc"><div class="spl">Service</div><div class="spv">Weekly</div><div class="sps">Restock + maintenance</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mduo rv" style="margin-top:50px">
+      <div class="dcard"><img src="images/machine-dark.png" alt="NOURIÉ station product display"><div class="dcap"><div class="dct">Curated Product Display</div><div class="dcd">Color-coded rows make browsing effortless. Wellness drinks, premium snacks, and beauty essentials — organized beautifully.</div></div></div>
+      <div class="dcard"><img src="images/bmodel.png" alt="NOURIÉ — Zero cost, we stock, you earn"><div class="dcap"><div class="dct">The Business Model</div><div class="dcd">Zero cost. We install, stock, and maintain. You earn a percentage of every sale deposited monthly — automatically.</div></div></div>
+    </div>
+    <div class="mwrap2 rv" style="margin-top:58px">
+      <div><img src="images/wrap.jpg" class="wimg" alt="NOURIÉ custom brand wrap station"></div>
+      <div>
+        <div class="ruled" style="margin-bottom:16px"><div class="rl" style="background:var(--gi)"></div><span class="eye">Custom Branding</span></div>
+        <h3 class="d3" style="color:var(--rose2);margin-bottom:26px">Your space.<br>Your brand.<em> Our machine.</em></h3>
+        <div class="wfeat"><div class="wfico">🎨</div><div><div class="wft">Full-Surface Custom Wrap</div><div class="wfd">Every inch wrapped in your brand palette, logo, and visual identity.</div></div></div>
+        <div class="wfeat"><div class="wfico">📱</div><div><div class="wft">Branded Touchscreen UI</div><div class="wfd">On-screen interface carries your brand messaging, colors, and welcome text.</div></div></div>
+        <div class="wfeat"><div class="wfico">✓</div><div><div class="wft">You Approve the Design</div><div class="wfd">Nothing goes on your floor until you've reviewed and approved every detail.</div></div></div>
+        <div style="margin-top:28px"><a href="#" onclick="SP('request');return false" class="btn btn-plum">Request Your Custom Station</a></div>
+      </div>
+    </div>
+    <div class="sstrip rv" style="margin-top:58px">
+      <div class="ssi"><div class="ssico">🧊</div><div class="ssl">Refrigerated</div><div class="ssv">Cold &amp; Fresh</div></div>
+      <div class="ssi"><div class="ssico">📱</div><div class="ssl">Touchscreen</div><div class="ssv">Full Color</div></div>
+      <div class="ssi"><div class="ssico">💳</div><div class="ssl">Cashless</div><div class="ssv">Tap / Swipe</div></div>
+      <div class="ssi"><div class="ssico">🎨</div><div class="ssl">Custom Wrap</div><div class="ssv">Your Brand</div></div>
+      <div class="ssi"><div class="ssico">📦</div><div class="ssl">60 Slots</div><div class="ssv">Full Capacity</div></div>
+      <div class="ssi"><div class="ssico">🔄</div><div class="ssl">Weekly</div><div class="ssv">Always Full</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="sec">
+  <div class="si">
+    <div class="sh rv">
+      <div class="ruled"><div class="rl"></div><span class="eye" style="color:var(--rose)">The Process</span></div>
+      <h2 class="d2" style="color:var(--plum)">Zero cost. Zero effort.<em> Just results.</em></h2>
+    </div>
+    <div class="bmodel rv"><img src="images/bmodel.png" alt="NOURIÉ — 30-day free trial, we stock, you earn, custom branding"></div>
+    <div class="steps">
+      <div class="step rv"><div class="stn">01</div><div class="stco">🔍</div><div class="stt">Discovery</div><div class="std">We visit your space, assess foot traffic and placement, and recommend the perfect NOURIÉ configuration. 20 minutes. Zero obligation.</div></div>
+      <div class="step rv d1"><div class="stn">02</div><div class="stco">🎨</div><div class="stt">Design &amp; Wrap</div><div class="std">Custom machine wrap matching your brand. You approve the design and product mix before anything ships or installs.</div></div>
+      <div class="step rv d2"><div class="stn">03</div><div class="stco">⚡</div><div class="stt">Install &amp; Launch</div><div class="std">We deliver, install, and fully stock your station. Cashless system activated. Under 2 hours total. Your 30-day trial begins.</div></div>
+      <div class="step rv d3"><div class="stn">04</div><div class="stco">💰</div><div class="stt">Restock &amp; Earn</div><div class="std">NOURIÉ manages all restocking and maintenance weekly. Your revenue share deposits monthly by the 15th — automatically.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="catalog" class="sec" style="background:var(--chalk)">
+  <div class="si">
+    <div class="cintro">
+      <div class="rv">
+        <div class="ruled" style="margin-bottom:16px"><div class="rl"></div><span class="eye" style="color:var(--rose)">Product Catalog</span></div>
+        <h2 class="d2" style="color:var(--plum)">Three collections.<em> One standard.</em></h2>
+        <p class="blg" style="color:var(--stone);margin-top:12px">Every item in every NOURIÉ station is intentionally selected. No generic fillers. No bulk-bin brands. The same quality standard your clients already expect from your space.</p>
+        <div class="ctags">
+          <div class="ctag w"><span class="ctag-ico">🌿</span><div><div class="ctag-n">NOURIÉ WELL</div><div class="ctag-d">Wellness drinks, collagen waters, probiotics, teas</div></div></div>
+          <div class="ctag g"><span class="ctag-ico">✨</span><div><div class="ctag-n">NOURIÉ GOURMET</div><div class="ctag-d">Cold brew, kombucha, artisan chocolate, snacks</div></div></div>
+          <div class="ctag e"><span class="ctag-ico">💛</span><div><div class="ctag-n">NOURIÉ ESSENTIALS</div><div class="ctag-d">Personal care, beauty, tech, convenience</div></div></div>
+        </div>
+        <div style="margin-top:28px"><a href="#" onclick="SP('request');return false" class="btn btn-outline">Request the Full Catalog</a></div>
+      </div>
+      <div class="cintroimg rv d2"><img src="images/machine-dark.png" alt="NOURIÉ station curated product display"></div>
+    </div>
+    <div class="rv">
+      <div class="ctabs">
+        <button class="ctab active" onclick="showColl('well',this)">NOURIÉ Well</button>
+        <button class="ctab" onclick="showColl('gourmet',this)">NOURIÉ Gourmet</button>
+        <button class="ctab" onclick="showColl('essentials',this)">NOURIÉ Essentials</button>
+      </div>
+      <div id="coll-well" class="cpanel active">
+        <div class="cl">
+          <div class="cimg"><img src="images/well.png" alt="NOURIÉ Wellness Collection"></div>
+          <div class="plist">
+            <div class="prow"><div class="psw" style="background:#5B8C6A"></div><div class="pi"><div class="pb">Vital Proteins</div><div class="pn">Collagen Water</div><div class="pd">Strawberry Lemon · 10g collagen</div></div><div class="pp">$4.99</div></div>
+            <div class="prow"><div class="psw" style="background:#C8A06A"></div><div class="pi"><div class="pb">OLIPOP</div><div class="pn">Prebiotic Soda</div><div class="pd">Vintage Cola, Strawberry Vanilla</div></div><div class="pp">$3.49</div></div>
+            <div class="prow"><div class="psw" style="background:#C97860"></div><div class="pi"><div class="pb">Liquid Youth</div><div class="pn">Sparkling Collagen</div><div class="pd">Blood Orange, Passion Bliss</div></div><div class="pp">$5.49</div></div>
+            <div class="prow"><div class="psw" style="background:#6B8E5A"></div><div class="pi"><div class="pb">GT's Kombucha</div><div class="pn">Organic Raw</div><div class="pd">Gingerade, Trilogy · probiotic-rich</div></div><div class="pp">$4.29</div></div>
+            <div class="prow"><div class="psw" style="background:#C08090"></div><div class="pi"><div class="pb">Poppi</div><div class="pn">Prebiotic Soda</div><div class="pd">Raspberry Rose, Lemon Lime</div></div><div class="pp">$2.99</div></div>
+            <div class="prow"><div class="psw" style="background:#7A8C6A"></div><div class="pi"><div class="pb">Rishi Tea</div><div class="pn">Sparkling Botanicals</div><div class="pd">Turmeric Ginger, Matcha</div></div><div class="pp">$3.99</div></div>
+          </div>
+        </div>
+      </div>
+      <div id="coll-gourmet" class="cpanel">
+        <div class="cl">
+          <div class="plist">
+            <div class="prow"><div class="psw" style="background:#7A4A38"></div><div class="pi"><div class="pb">Hu Kitchen</div><div class="pn">Dark Chocolate</div><div class="pd">Cashew Butter, Simple · paleo, no refined sugar</div></div><div class="pp">$5.99</div></div>
+            <div class="prow"><div class="psw" style="background:#604830"></div><div class="pi"><div class="pb">Chameleon Cold-Brew</div><div class="pn">Organic Coffee</div><div class="pd">Black, Vanilla, Oat Milk</div></div><div class="pp">$4.99</div></div>
+            <div class="prow"><div class="psw" style="background:#5070A0"></div><div class="pi"><div class="pb">RXBar</div><div class="pn">Protein Bars</div><div class="pd">Chocolate Sea Salt, Blueberry</div></div><div class="pp">$3.49</div></div>
+            <div class="prow"><div class="psw" style="background:#9080B0"></div><div class="pi"><div class="pb">La Croix</div><div class="pn">Sparkling Water</div><div class="pd">Cucumber, Rose, Tangerine</div></div><div class="pp">$1.99</div></div>
+            <div class="prow"><div class="psw" style="background:#9A8060"></div><div class="pi"><div class="pb">Purely Elizabeth</div><div class="pn">Granola Clusters</div><div class="pd">MCT Oil &amp; Collagen Protein</div></div><div class="pp">$4.49</div></div>
+            <div class="prow"><div class="psw" style="background:#8A4038"></div><div class="pi"><div class="pb">Chomps</div><div class="pn">Grass-Fed Meat Sticks</div><div class="pd">Original &amp; Jalapeño · no nitrates</div></div><div class="pp">$2.99</div></div>
+          </div>
+          <div class="cimg"><img src="images/gourmet.png" alt="NOURIÉ Gourmet Collection"></div>
+        </div>
+      </div>
+      <div id="coll-essentials" class="cpanel">
+        <div class="cl">
+          <div class="cimg"><img src="images/essentials.png" alt="NOURIÉ Essentials Collection"></div>
+          <div class="plist">
+            <div class="prow"><div class="psw" style="background:#B89A70"></div><div class="pi"><div class="pb">Kitsch</div><div class="pn">Satin Hair Ties</div><div class="pd">Snag-free 6-pack</div></div><div class="pp">$3.99</div></div>
+            <div class="prow"><div class="psw" style="background:#8A8A70"></div><div class="pi"><div class="pb">Native</div><div class="pn">Mini Deodorant</div><div class="pd">Coconut &amp; Vanilla travel size</div></div><div class="pp">$4.99</div></div>
+            <div class="prow"><div class="psw" style="background:#C0A860"></div><div class="pi"><div class="pb">Touchland</div><div class="pn">Power Mist Hand Sanitizer</div><div class="pd">Luxury sanitizer · viral brand</div></div><div class="pp">$5.99</div></div>
+            <div class="prow"><div class="psw" style="background:#606090"></div><div class="pi"><div class="pb">Anker</div><div class="pn">USB-C Cable</div><div class="pd">Lightning &amp; USB-C 3ft</div></div><div class="pp">$8.99</div></div>
+            <div class="prow"><div class="psw" style="background:#903838"></div><div class="pi"><div class="pb">Advil</div><div class="pn">Pain Relief Pack</div><div class="pd">Single-dose 2ct</div></div><div class="pp">$1.99</div></div>
+            <div class="prow"><div class="psw" style="background:#8080B0"></div><div class="pi"><div class="pb">Dr. Bronner's</div><div class="pn">Hand Sanitizer</div><div class="pd">Peppermint, Lavender · organic</div></div><div class="pp">$3.99</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages" class="sec">
+  <div class="si">
+    <div class="sh shc rv">
+      <div class="ruled" style="justify-content:center"><div class="rl"></div><span class="eye" style="color:var(--rose)">Choose Your Model</span><div class="rl"></div></div>
+      <h2 class="d2" style="color:var(--plum)">Select your NOURIÉ<em> package.</em></h2>
+      <p class="blg" style="color:var(--stone);max-width:500px;margin:12px auto 0">All packages include a 30-day free trial, custom branding, cashless payment, weekly restocking, and full maintenance.</p>
+    </div>
+    <div class="pkgs">
+      <div class="pkg rv">
+        <div class="pkeye">Wellness Focus</div><div class="pkname">NOURIÉ Well</div><div class="pksub">Collagen waters, herbal teas, adaptogen drinks</div>
+        <div class="pkpct">15%</div><div class="pkpl">Revenue Share</div>
+        <ul class="pkul"><li>25-item capacity</li><li>Vital Proteins, OLIPOP, GT's, Rishi, Poppi</li><li>Weekly restocking</li><li>Custom brand wrap</li><li>30-day free trial</li></ul>
+        <a href="#" onclick="SP('request');return false" class="btn btn-outline btn-w">Start Free Trial</a>
+      </div>
+      <div class="pkg feat rv d1">
+        <div class="pkbadge">Most Popular</div>
+        <div class="pkeye">Premium Selection</div><div class="pkname">NOURIÉ Gourmet</div><div class="pksub">Everything in Well + cold brew, artisan snacks</div>
+        <div class="pkpct">18%</div><div class="pkpl">Revenue Share</div>
+        <ul class="pkul"><li>40-item capacity</li><li>La Croix, Hu Kitchen, Chameleon, RXBar, Chomps</li><li>Priority weekly restocking</li><li>Custom brand wrap</li><li>30-day free trial</li></ul>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold btn-w">Start Free Trial</a>
+      </div>
+      <div class="pkg rv d2">
+        <div class="pkeye">Full Service</div><div class="pkname">NOURIÉ Essentials</div><div class="pksub">Everything in Gourmet + personal care &amp; beauty</div>
+        <div class="pkpct">20%</div><div class="pkpl">Revenue Share</div>
+        <ul class="pkul"><li>50+ item capacity</li><li>Kitsch, Native, Touchland, Anker, Advil</li><li>Weekly + on-demand restocking</li><li>Dedicated account manager</li><li>30-day free trial</li></ul>
+        <a href="#" onclick="SP('request');return false" class="btn btn-outline btn-w">Start Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="sec">
+  <div class="wm1"></div><div class="wm2"></div>
+  <div class="si" style="position:relative;z-index:1">
+    <div class="sh rv">
+      <div class="ruled"><div class="rl" style="background:var(--gi)"></div><span class="eye">Why Partner</span></div>
+      <h2 class="d2">The business case<br>for your<em> space.</em></h2>
+    </div>
+    <div class="bengrid">
+      <div class="ben rv"><div class="bico">❤️</div><div class="bt">Enhanced Guest Experience</div><div class="bd">A curated NOURIÉ station signals you care about every detail. A premium brand touchpoint, not a convenience item.</div></div>
+      <div class="ben rv d1"><div class="bico">💰</div><div class="bt">Passive Revenue Stream</div><div class="bd">Earn a percentage of every sale deposited monthly. Your station earns its floor space from day one.</div></div>
+      <div class="ben rv d2"><div class="bico">⚡</div><div class="bt">Zero Operational Burden</div><div class="bd">Installation, restocking, maintenance, payments — NOURIÉ handles everything. You never touch the station.</div></div>
+      <div class="ben rv"><div class="bico">✦</div><div class="bt">Premium Curation</div><div class="bd">Recognizable wellness and gourmet brands — never generic inventory. Every product is intentional.</div></div>
+      <div class="ben rv d1"><div class="bico">🎨</div><div class="bt">Custom Brand Integration</div><div class="bd">Wrapped in your colors and aesthetic. The station becomes part of your space's visual identity.</div></div>
+      <div class="ben rv d2"><div class="bico">🛡️</div><div class="bt">No Cost. No Risk.</div><div class="bd">30-day free trial. If it's not the right fit, we remove it. No questions, no fees, no awkward conversations.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="diff">
+  <div class="si" style="position:relative;z-index:1">
+    <div class="sh rv">
+      <div class="ruled"><div class="rl" style="background:var(--gi)"></div><span class="eye">Why We're Different</span></div>
+      <h2 class="d2" style="color:var(--rose2)">What competitors<em> can't copy.</em></h2>
+      <p class="blg" style="color:rgba(240,196,200,.38);max-width:580px;margin-top:12px">Think Whole Foods + Equinox + Apple Store — in vending form. These five pillars are why no traditional vending company can replicate the NOURIÉ experience.</p>
+    </div>
+    <div class="dg rv">
+      <div class="dc"><div class="dn">01</div><div class="dt">Beauty in Vending</div><div class="dd">Kiehl's, Tarte, Touchland, Kitsch — prestige beauty at vending price points. Creates immediate word-of-mouth.</div></div>
+      <div class="dc"><div class="dn">02</div><div class="dt">Collagen Drinks</div><div class="dd">Vital Proteins Collagen Water and Liquid Youth — exclusively NOURIÉ in Houston. Massive Sephora/Ulta audience recognition.</div></div>
+      <div class="dc"><div class="dn">03</div><div class="dt">Non-Alc Trend</div><div class="dd">Kin Euphorics, Hiyo — targeting the sober-curious demographic in corporate offices and luxury apartments.</div></div>
+      <div class="dc"><div class="dn">04</div><div class="dt">The $8+ SKU</div><div class="dd">Intentional high-AOV items: Kiehl's, Anker cables, Compartes chocolate. One cable sale = three soda sales in margin.</div></div>
+      <div class="dc"><div class="dn">05</div><div class="dt">Boutique Feel</div><div class="dd">Merchandised like a luxury retail display — not restocked like a route. Products always faced. Labels always visible.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="sec" style="background:var(--chalk)">
+  <div class="si">
+    <div class="sh shc rv">
+      <div class="ruled" style="justify-content:center"><div class="rl"></div><span class="eye" style="color:var(--rose)">Ideal Environments</span><div class="rl"></div></div>
+      <h2 class="d2" style="color:var(--plum)">Where NOURIÉ<em> belongs.</em></h2>
+    </div>
+    <div class="indgrid">
+      <div class="indc rv"><div class="iico">🏢</div><div class="iname">Corporate Offices</div><div class="idesc">Elevate culture. Signal you care about employee wellbeing beyond the benefits package.</div></div>
+      <div class="indc rv d1"><div class="iico">🏥</div><div class="iname">Healthcare Facilities</div><div class="idesc">Fuel nurses through 12-hour shifts with clean protein, wellness drinks, and personal care.</div></div>
+      <div class="indc rv d2"><div class="iico">🏋️</div><div class="iname">Fitness &amp; Gyms</div><div class="idesc">Protein, recovery, and premium hydration where your members need it most.</div></div>
+      <div class="indc rv d3"><div class="iico">🏨</div><div class="iname">Luxury Apartments</div><div class="idesc">Amenity-forward living. Residents expect premium. NOURIÉ delivers it.</div></div>
+      <div class="indc rv d4"><div class="iico">💼</div><div class="iname">Warehouses</div><div class="idesc">High-energy, high-protein, high-convenience for demanding physical environments.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="testi" class="sec">
+  <div class="si">
+    <div class="sh shc rv">
+      <div class="ruled" style="justify-content:center"><div class="rl"></div><span class="eye" style="color:var(--rose)">Partner Voices</span><div class="rl"></div></div>
+      <h2 class="d2" style="color:var(--plum)">What our partners<em> say.</em></h2>
+    </div>
+    <div class="tgrid">
+      <div class="tc rv"><div class="tstars"><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span></div><div class="tq">"</div><div class="tt">Our clients immediately commented on the station. It added a level of thoughtfulness we hadn't anticipated. It just fits.</div><div class="trl"></div><div class="tname">A. Morrison</div><div class="trole">Owner, Luxe Pilates — Houston, TX</div></div>
+      <div class="tc rv d1"><div class="tstars"><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span></div><div class="tq">"</div><div class="tt">The revenue share alone makes it worth it. But the real value is the experience upgrade. Members feel taken care of instantly.</div><div class="trl"></div><div class="tname">D. Reyes</div><div class="trole">GM, Apex Athletic — Katy, TX</div></div>
+      <div class="tc rv d2"><div class="tstars"><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span><span class="tstar">★</span></div><div class="tq">"</div><div class="tt">Setup was painless, professional from day one, and the station is always stocked. It matches our brand perfectly.</div><div class="trl"></div><div class="tname">S. Okafor</div><div class="trole">Director, Serenity Med Spa — Sugar Land, TX</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ctaband">
+  <div class="co1"></div><div class="co2"></div>
+  <div class="ctai rv">
+    <div class="ruled" style="justify-content:center;margin-bottom:22px"><div class="rl" style="background:var(--gi)"></div><span class="eye" style="color:rgba(232,160,168,.42)">Get Started</span><div class="rl" style="background:var(--gi)"></div></div>
+    <h2 class="d2" style="color:var(--rose2)">Elevate your space.<em> Start today.</em></h2>
+    <p class="blg" style="color:rgba(240,196,200,.36);max-width:420px;margin:14px auto 0">30-day free trial. No cost. No commitment. We handle everything.</p>
+    <div class="ctabtns">
+      <a href="#" onclick="SP('request');return false" class="btn btn-gold">Request a Station</a>
+      <a href="#" onclick="SP('biz');return false" class="btn btn-dark">Learn More</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /pg-home -->
+
+<!-- FOR BUSINESSES -->
+<div id="pg-biz" class="pg">
+  <div class="pghdr"><div class="phorb"></div>
+    <div class="phc"><span class="eye" style="color:rgba(232,160,168,.42);display:block;margin-bottom:10px">Partner Program</span><h1 class="d2">Designed for businesses<em> like yours.</em></h1><p class="blg">Zero cost. Passive revenue. A premium amenity experience that elevates your brand.</p></div>
+  </div>
+  <section class="sec" style="background:var(--chalk)">
+    <div class="si">
+      <div class="rv" style="margin-bottom:76px">
+        <div class="ruled" style="margin-bottom:16px"><div class="rl"></div><span class="eye" style="color:var(--rose)">Zero Cost. Zero Risk.</span></div>
+        <h2 class="d2" style="color:var(--plum);margin-bottom:26px">We install. We stock. We maintain.<em> You earn.</em></h2>
+        <div class="bmodel"><img src="images/bmodel.png" alt="NOURIÉ business model"></div>
+      </div>
+      <div class="sh rv"><div class="ruled"><div class="rl"></div><span class="eye" style="color:var(--rose)">Choose Your Model</span></div><h2 class="d2" style="color:var(--plum)">Select your NOURIÉ<em> package.</em></h2></div>
+      <div class="pkgs">
+        <div class="pkg rv"><div class="pkeye">Wellness Focus</div><div class="pkname">NOURIÉ Well</div><div class="pksub">Collagen waters, herbal teas, adaptogens</div><div class="pkpct">15%</div><div class="pkpl">Revenue Share</div><ul class="pkul"><li>25-item capacity</li><li>Vital Proteins, OLIPOP, GT's, Rishi</li><li>Weekly restocking</li><li>Custom wrap</li><li>30-day free trial</li></ul><a href="#" onclick="SP('request');return false" class="btn btn-outline btn-w">Start Free Trial</a></div>
+        <div class="pkg feat rv d1"><div class="pkbadge">Most Popular</div><div class="pkeye">Premium Selection</div><div class="pkname">NOURIÉ Gourmet</div><div class="pksub">Everything in Well + cold brew, artisan snacks</div><div class="pkpct">18%</div><div class="pkpl">Revenue Share</div><ul class="pkul"><li>40-item capacity</li><li>La Croix, Hu Kitchen, Chameleon, RXBar</li><li>Priority weekly restocking</li><li>Custom wrap</li><li>30-day free trial</li></ul><a href="#" onclick="SP('request');return false" class="btn btn-gold btn-w">Start Free Trial</a></div>
+        <div class="pkg rv d2"><div class="pkeye">Full Service</div><div class="pkname">NOURIÉ Essentials</div><div class="pksub">Everything in Gourmet + personal care &amp; beauty</div><div class="pkpct">20%</div><div class="pkpl">Revenue Share</div><ul class="pkul"><li>50+ item capacity</li><li>Kitsch, Native, Touchland, Anker, Advil</li><li>Weekly + on-demand restocking</li><li>Dedicated account manager</li><li>30-day free trial</li></ul><a href="#" onclick="SP('request');return false" class="btn btn-outline btn-w">Start Free Trial</a></div>
+      </div>
+      <div style="margin-top:90px" class="rv">
+        <div class="ruled" style="margin-bottom:12px"><div class="rl"></div><span class="eye" style="color:var(--rose)">Questions</span></div>
+        <h2 class="d2" style="color:var(--plum);margin-bottom:48px">Frequently asked<em> questions.</em></h2>
+        <div class="faqitem"><div class="faqq">Is there really no cost to my business?<span class="faqico">+</span></div><div class="faqa">Correct. NOURIÉ provides the station, installation, product stocking, weekly restocking, and full maintenance at no charge. We earn revenue from product sales and share a percentage with you monthly.</div></div>
+        <div class="faqitem"><div class="faqq">How is the revenue share calculated?<span class="faqico">+</span></div><div class="faqa">Revenue share is a percentage of total net sales each calendar month. Payments are issued monthly via ACH or check with a detailed statement by the 15th.</div></div>
+        <div class="faqitem"><div class="faqq">What happens after the 30-day free trial?<span class="faqico">+</span></div><div class="faqa">We review performance together. If it's not working, we remove the station at no cost. If it's working, we continue under standard 90-day terms.</div></div>
+        <div class="faqitem"><div class="faqq">How much floor space does the station require?<span class="faqico">+</span></div><div class="faqa">Standard footprint is approximately 24" wide × 30" deep — smaller than most office printers. We confirm placement during the discovery visit.</div></div>
+        <div class="faqitem"><div class="faqq">Can I choose which products go in my station?<span class="faqico">+</span></div><div class="faqa">Yes. During the discovery visit we learn about your clientele and propose a product mix — you have approval before installation.</div></div>
+        <div class="faqitem"><div class="faqq">Do I need to do anything after installation?<span class="faqico">+</span></div><div class="faqa">Nothing. NOURIÉ handles all restocking and maintenance weekly. Contact your account manager if anything needs attention between visits.</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--plum);text-align:center;position:relative;overflow:hidden">
+    <div class="co1"></div>
+    <div style="position:relative;z-index:1;max-width:600px;margin:0 auto">
+      <h2 class="d2 rv" style="color:var(--rose2)">Ready to<em> partner?</em></h2>
+      <div class="ctabtns rv d1"><a href="#" onclick="SP('request');return false" class="btn btn-gold">Request a Station</a><a href="#" onclick="SP('contact');return false" class="btn btn-dark">Ask a Question</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div id="pg-about" class="pg">
+  <div class="pghdr"><div class="phorb"></div>
+    <div class="phc"><span class="eye" style="color:rgba(232,160,168,.42);display:block;margin-bottom:10px">Our Story</span><h1 class="d2">The NOURIÉ<em> Concept</em></h1><p class="blg">Born from the belief that every great space deserves amenities that match its standard.</p></div>
+  </div>
+  <section class="sec" style="background:var(--chalk)">
+    <div class="si">
+      <div class="aboutbody rv" style="max-width:740px">
+        <div class="ruled" style="margin-bottom:12px"><div class="rl"></div><span class="eye" style="color:var(--rose)">Why We Built This</span></div>
+        <h2 class="d3" style="color:var(--plum);margin-bottom:26px">Wellness-forward convenience<br>for<em> modern spaces.</em></h2>
+        <p>Some ideas begin with a problem. NOURIÉ began with a feeling — walking into a beautiful, carefully designed space and encountering a vending machine in the corner. Loud branding. Generic products. A machine that communicated the opposite of everything the business had worked to build.</p>
+        <p>NOURIÉ was created to solve that disconnect. We believe every great space deserves amenities that match its standard — not generic convenience, not an afterthought. A curated, beautifully designed self-service experience that feels like it was always meant to be there.</p>
+        <p>We are not in the vending business. We are in the business of elevating spaces.</p>
+      </div>
+      <div class="avals">
+        <div class="av rv"><div class="avt">Premium</div><div class="avd">We source exclusively from wellness and gourmet brands clients recognize and trust. Every item is intentional.</div></div>
+        <div class="av rv d1"><div class="avt">Minimal</div><div class="avd">Our station design and operational model are built around simplicity. Visually clean. Quietly functional.</div></div>
+        <div class="av rv d2"><div class="avt">Hospitality</div><div class="avd">We approach every partnership the way a boutique hotel approaches its guest experience — with genuine care.</div></div>
+      </div>
+      <div class="aparent rv">
+        <div class="aps"><span class="eye" style="color:rgba(232,160,168,.38);display:block;margin-bottom:9px">Our Parent Company</span><div class="d4">Hearthstone &amp; Co.<em> Workforce Solutions</em></div><p>NOURIÉ is a specialty program of Hearthstone &amp; Co. Workforce Solutions, a credentialed healthcare staffing agency serving Greater Houston — a subsidiary of The Shiylohe Collective, a veteran-owned parent company.</p></div>
+        <div class="apdiv"></div>
+        <div class="aps"><span class="eye" style="color:rgba(232,160,168,.38);display:block;margin-bottom:9px">The Shiylohe Collective</span><div class="d4">Veteran-<em>owned.</em><br>Houston-based.</div><p>Built on the principle that business can be both principled and exceptional. NOURIÉ carries that standard into every space it serves.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- REQUEST -->
+<div id="pg-request" class="pg">
+  <div class="pghdr"><div class="phorb"></div>
+    <div class="phc"><span class="eye" style="color:rgba(232,160,168,.42);display:block;margin-bottom:10px">Start Your Trial</span><h1 class="d2">Request a Station</h1><p class="blg">No cost. No lease. No commitment. We'll reach out within 48 hours.</p></div>
+  </div>
+  <section class="sec" style="background:var(--chalk)">
+    <div class="si flayout">
+      <div class="rv">
+        <div class="ruled" style="margin-bottom:18px"><div class="rl"></div><span class="eye" style="color:var(--rose)">What to Expect</span></div>
+        <div class="fii"><div class="fil">Step One</div><div class="fiv">Submit your request. Our team reviews every submission personally.</div></div>
+        <div class="fii"><div class="fil">Step Two</div><div class="fiv">We call within 48 hours to schedule a 20-minute discovery visit.</div></div>
+        <div class="fii"><div class="fil">Step Three</div><div class="fiv">We assess your space and present a custom station proposal.</div></div>
+        <div class="fii"><div class="fil">Step Four</div><div class="fiv">Installation at your convenience. Your 30-day trial begins on install day.</div></div>
+        <div class="fprom"><div class="fproml">Our Promise</div><div class="fpromt">No obligation after your free trial. If NOURIÉ isn't the right fit, we remove the station — no questions, no charges.</div></div>
+        <div class="fimgw"><img src="images/wrap.jpg" alt="NOURIÉ custom branded station"></div>
+      </div>
+      <div class="rv d2">
+        <form name="station-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="req-form">
+          <input type="hidden" name="form-name" value="station-request"><input name="bot-field" style="display:none">
+          <div class="fgrid">
+            <div class="fg"><label class="fl">Business Name *</label><input class="fi" type="text" name="business-name" required></div>
+            <div class="fg"><label class="fl">Your Name *</label><input class="fi" type="text" name="contact-name" required></div>
+            <div class="fg"><label class="fl">Email *</label><input class="fi" type="email" name="email" required></div>
+            <div class="fg"><label class="fl">Phone *</label><input class="fi" type="tel" name="phone" required></div>
+            <div class="fg"><label class="fl">City *</label><input class="fi" type="text" name="city" required></div>
+            <div class="fg"><label class="fl">Est. Daily Visitors</label><input class="fi" type="text" name="visitors" placeholder="e.g. 50–150"></div>
+            <div class="fg ffull"><label class="fl">Business Type *</label><select class="fsel" name="business-type" required><option value="" disabled selected>Select your business type</option><option>Corporate Office</option><option>Healthcare / Medical</option><option>Gym &amp; Fitness</option><option>Luxury Residential</option><option>Warehouse &amp; Logistics</option><option>Hotel &amp; Hospitality</option><option>Co-Working Space</option><option>Spa / Salon / Wellness</option><option>Other</option></select></div>
+            <div class="fg ffull"><label class="fl">Package Interest</label><select class="fsel" name="package"><option value="" disabled selected>Which package?</option><option>NOURIÉ Well (15% · 25 items)</option><option>NOURIÉ Gourmet (18% · 40 items)</option><option>NOURIÉ Essentials (20% · 50+ items)</option><option>Not sure yet</option></select></div>
+            <div class="fg ffull"><label class="fl">Additional Notes</label><textarea class="fta" name="message" placeholder="Tell us about your space…"></textarea></div>
+          </div>
+          <div style="margin-top:10px"><button type="submit" class="btn btn-gold btn-w">Schedule My Free Discovery Call →</button></div>
+          <p class="fnote">No cost. No commitment. We respond within 24 hours.</p>
+        </form>
+        <div class="fok" id="req-ok">✦ &nbsp;Thank you — your request has been received. Our team will be in touch within 48 hours.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div id="pg-contact" class="pg">
+  <div class="pghdr"><div class="phorb"></div>
+    <div class="phc"><span class="eye" style="color:rgba(232,160,168,.42);display:block;margin-bottom:10px">Get In Touch</span><h1 class="d2">Contact<em> NOURIÉ</em></h1><p class="blg">Questions, inquiries, or just want to learn more — we'd love to hear from you.</p></div>
+  </div>
+  <section class="sec" style="background:var(--chalk)">
+    <div class="si flayout">
+      <div class="rv">
+        <div class="ruled" style="margin-bottom:18px"><div class="rl"></div><span class="eye" style="color:var(--rose)">Reach Us</span></div>
+        <div class="fii"><div class="fil">Phone</div><div class="fiv"><a href="tel:5126300794" style="color:var(--plum)">(512) 630-0794</a></div></div>
+        <div class="fii"><div class="fil">Email</div><div class="fiv"><a href="mailto:facilities@hearthstoneandco.com" style="color:var(--plum)">facilities@hearthstoneandco.com</a></div></div>
+        <div class="fii"><div class="fil">Website</div><div class="fiv"><a href="https://hearthstoneandco.com" style="color:var(--plum)">hearthstoneandco.com</a></div></div>
+        <div class="fii"><div class="fil">Hours</div><div class="fiv">Mon–Fri 8am–6pm CT · Sat 9am–2pm CT</div></div>
+        <div class="fii"><div class="fil">Service Area</div><div class="fiv">Greater Houston, TX &amp; surrounding areas</div></div>
+      </div>
+      <div class="rv d2">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="con-form">
+          <input type="hidden" name="form-name" value="contact"><input name="bot-field" style="display:none">
+          <div class="fgrid">
+            <div class="fg"><label class="fl">Name *</label><input class="fi" type="text" name="name" required></div>
+            <div class="fg"><label class="fl">Email *</label><input class="fi" type="email" name="email" required></div>
+            <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" name="phone"></div>
+            <div class="fg"><label class="fl">Subject</label><select class="fsel" name="subject"><option value="" disabled selected>Select a topic</option><option>Partnership Inquiry</option><option>Request a Station</option><option>Product Questions</option><option>Current Partner Support</option><option>Other</option></select></div>
+            <div class="fg ffull"><label class="fl">Message *</label><textarea class="fta" name="message" style="min-height:130px" required></textarea></div>
+          </div>
+          <div style="margin-top:10px"><button type="submit" class="btn btn-gold btn-w">Send Message</button></div>
+        </form>
+        <div class="fok" id="con-ok">✦ &nbsp;Message received. We'll respond within one business day.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="foot">
+  <div class="fti">
+    <div class="ftop">
+      <div>
+        <div class="ftlogo">NOURIÉ</div>
+        <p class="ftdesc">Premium self-service amenity stations featuring wellness drinks, artisan snacks, and essentials — custom-branded for your space.</p>
+        <div class="ftattr">A Program by Hearthstone &amp; Co. Workforce Solutions</div>
+        <div class="ftattr" style="color:rgba(232,160,168,.15);margin-top:3px">A Division of The Shiylohe Collective · Veteran-Owned</div>
+      </div>
+      <div class="ftcol"><div class="ftct">Navigate</div><a href="#" onclick="SP('home');scrollTo(0,0)">Home</a><a href="#" onclick="GS('machine')">The Station</a><a href="#" onclick="GS('catalog')">Products</a><a href="#" onclick="GS('how')">How It Works</a><a href="#" onclick="SP('about');return false">About</a></div>
+      <div class="ftcol"><div class="ftct">Partner</div><a href="#" onclick="SP('request');return false">Request a Station</a><a href="#" onclick="SP('biz');return false">Partnership Overview</a><a href="#" onclick="GS('packages')">Our Packages</a><a href="#" onclick="SP('contact');return false">Contact Us</a></div>
+      <div class="ftcol"><div class="ftct">Contact</div><a href="tel:5126300794">(512) 630-0794</a><a href="mailto:facilities@hearthstoneandco.com">facilities@hearthstoneandco.com</a><a href="https://hearthstoneandco.com">hearthstoneandco.com</a><a>Mon–Fri 8am–6pm CT</a></div>
+    </div>
+    <div class="fbot">
+      <div class="fcopy">© 2026 NOURIÉ by Hearthstone &amp; Co. All rights reserved.</div>
+      <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function SP(n){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('active'));
+  var t=document.getElementById('pg-'+n);
+  if(t)t.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(IR,80);
+  return false;
+}
+function GS(id){
+  SP('home');
+  setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});},200);
+  return false;
+}
+var navEl=document.getElementById('nav');
+window.addEventListener('scroll',function(){navEl.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+hbg.addEventListener('click',function(){
+  hbg.classList.toggle('open');
+  mob.classList.toggle('open');
+  document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
+});
+function CM(){hbg.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+  var fq=e.target.closest('.faqq');
+  if(fq)fq.parentElement.classList.toggle('open');
+});
+function showColl(id,btn){
+  document.querySelectorAll('.cpanel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.ctab').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('coll-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+var io;
+function IR(){
+  if(io)io.disconnect();
+  var els=document.querySelectorAll('.rv:not(.in)');
+  io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(el){io.observe(el);});
+}
+IR();
+window.addEventListener('load',IR);
+[['req-form','req-ok'],['con-form','con-ok']].forEach(function(pair){
+  var f=document.getElementById(pair[0]);
+  if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).catch(function(){});
+    f.style.display='none';
+    document.getElementById(pair[1]).style.display='block';
+  });
+});
+</script>
+</body>
+</html>
