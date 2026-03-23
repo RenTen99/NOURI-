@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOURIÉ — Luxury Curated Workplace Amenities | Houston, TX</title>
+<meta name="description" content="NOURIÉ provides luxury self-service amenity stations for apartments, gyms, offices, and government facilities across Houston, Katy, Sugar Land, The Woodlands, and Pearland, TX. Zero cost. Passive revenue. Premium brands.">
+<meta name="keywords" content="luxury vending machine Houston, smart vending machine apartments, unattended retail solutions Houston, vending machines gyms Houston, workplace amenities Houston TX, amenity solutions Katy TX, Sugar Land vending services, The Woodlands workplace amenities">
+<meta property="og:title" content="NOURIÉ — Curated Workplace Amenities for Modern Spaces">
+<meta property="og:description" content="Premium self-service amenity stations for apartments, gyms, offices, and public facilities. Houston, TX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ───────────────────────────────────────────────────────────────── */
+:root {
+  --cream:#FAF7F2; --cream2:#F3EDE3; --cream3:#EDE3D7;
+  --ink:#1A1612; --ink2:#2E2820; --ink3:#4A4038;
+  --gold:#B8913A; --gold2:#D4A857; --gold3:#E8C97A; --goldbg:#F9F3E8;
+  --sage:#5C7A5C; --rose:#B87070; --slate:#6B7A8D;
+  --white:#FFFFFF;
+  --fd:'Playfair Display',Georgia,serif;
+  --fb:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --reveal:cubic-bezier(.16,1,.3,1);
+  --gi:linear-gradient(135deg,#B8913A 0%,#E8C97A 50%,#B8913A 100%);
+  --gi2:linear-gradient(135deg,#D4A857,#E8C97A);
+}
+
+/* ── RESET ────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fb);font-weight:300;color:var(--ink);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:var(--fb);border:none;background:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--gold2);border-radius:2px}
+
+/* ── TYPOGRAPHY ──────────────────────────────────────────────────────────── */
+.d1{font-family:var(--fd);font-weight:400;font-size:clamp(44px,6vw,88px);line-height:1.04;letter-spacing:-.02em}
+.d2{font-family:var(--fd);font-weight:400;font-size:clamp(32px,4.5vw,66px);line-height:1.06;letter-spacing:-.01em}
+.d3{font-family:var(--fd);font-weight:400;font-size:clamp(22px,3vw,44px);line-height:1.14}
+.d4{font-family:var(--fd);font-weight:400;font-size:clamp(18px,2vw,28px);line-height:1.28}
+.eye{font-family:var(--fb);font-weight:400;font-size:10px;letter-spacing:.38em;text-transform:uppercase}
+.blg{font-size:clamp(15px,1.1vw,17px);line-height:1.88;font-weight:300}
+.bsm{font-size:13.5px;line-height:1.78;font-weight:300}
+em{font-style:italic}
+strong{font-weight:500}
+
+/* ── BUTTONS ─────────────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:16px 34px;border-radius:3px;transition:all .38s var(--ease);white-space:nowrap;cursor:pointer}
+.btn-gold{background:var(--gi);background-size:200%;color:var(--ink);box-shadow:0 4px 24px rgba(184,145,58,.28);animation:shim 5s ease infinite}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(184,145,58,.4)}
+.btn-outline{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--cream)}
+.btn-outline-gold{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
+.btn-outline-gold:hover{background:var(--gold);color:var(--ink)}
+.btn-outline-w{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:white}
+.btn-outline-w:hover{background:rgba(255,255,255,.12)}
+.btn-w{width:100%;justify-content:center}
+@keyframes shim{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:600;padding:0 5vw;height:74px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+#nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);height:62px;border-bottom:1px solid rgba(184,145,58,.12);box-shadow:0 2px 24px rgba(26,22,18,.06)}
+.nav-logo{font-family:var(--fd);font-weight:400;font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);transition:color .3s;font-weight:400}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:11px 22px;border-radius:3px;background:var(--ink);color:var(--cream)!important;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;transition:all .35s!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--ink)!important}
+.hbg{display:none;flex-direction:column;gap:5px;padding:4px}
+.hbg span{display:block;width:22px;height:1px;background:var(--ink);transition:all .3s}
+.hbg.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+#mob{display:none;position:fixed;inset:0;z-index:599;background:var(--cream);flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s}
+#mob.open{opacity:1;pointer-events:all}
+#mob a{font-family:var(--fd);font-size:32px;color:var(--ink);transition:color .3s}
+#mob a:hover{color:var(--gold)}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────────────── */
+.sec{padding:120px 5vw}
+.si{max-width:1340px;margin:0 auto}
+.sh{margin-bottom:80px}
+.shc{text-align:center}
+.rule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.rl{width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--cream3),transparent);margin:0}
+
+/* ── PAGE ROUTER ─────────────────────────────────────────────────────────── */
+.pg{display:none}.pg.active{display:block}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+#hero{min-height:100vh;background:var(--ink2);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:none;background-size:200px}
+.hero-geo{position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;border:1px solid rgba(184,145,58,.08);pointer-events:none}
+.hero-geo2{position:absolute;top:-60px;right:-60px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(184,145,58,.06);pointer-events:none}
+.hero-geo3{position:absolute;bottom:-150px;left:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(184,145,58,.05);pointer-events:none}
+
+.hero-inner{flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;padding:140px 5vw 80px;max-width:1340px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-tag{display:flex;align-items:center;gap:12px;margin-bottom:28px;animation:fadeUp .8s var(--reveal) .1s both}
+.hero-tl{width:28px;height:1px;background:var(--gold)}
+.hero-title{color:var(--cream);margin-bottom:20px;animation:fadeUp .9s var(--reveal) .25s both}
+.hero-title em{color:var(--gold3);display:block}
+.hero-sub{color:rgba(250,247,242,.5);font-size:17px;line-height:1.88;max-width:480px;margin-bottom:42px;animation:fadeUp .9s var(--reveal) .4s both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .9s var(--reveal) .54s both}
+.hero-trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;animation:fadeUp .9s var(--reveal) .68s both}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.25)}
+.trust-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* Video placeholder */
+.hero-right{animation:fadeRight 1.1s var(--reveal) .45s both}
+.vid-wrap{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:rgba(255,255,255,.04);border:1px solid rgba(184,145,58,.14)}
+.vid-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(45,38,30,.96),rgba(26,22,18,.99))}
+.vid-play{width:72px;height:72px;border-radius:50%;background:var(--gi);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .35s var(--ease);box-shadow:0 8px 32px rgba(184,145,58,.3);margin-bottom:18px}
+.vid-play:hover{transform:scale(1.1);box-shadow:0 16px 48px rgba(184,145,58,.5)}
+.vid-play svg{margin-left:4px}
+.vid-label{font-family:var(--fd);font-size:18px;color:var(--cream);font-weight:400;margin-bottom:6px}
+.vid-sub{font-size:11px;letter-spacing:.14em;color:rgba(250,247,242,.3);text-transform:uppercase}
+.vid-badges{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.vid-badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:8px 14px;text-align:center}
+.vid-badge-n{font-family:var(--fd);font-size:20px;color:var(--gold3)}
+.vid-badge-l{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,247,242,.22);margin-top:1px}
+
+/* Hero bottom stats bar */
+.hero-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(184,145,58,.08);background:rgba(26,22,18,.7);backdrop-filter:blur(16px);position:relative;z-index:2;animation:fadeUp .8s var(--reveal) .9s both}
+.hbar-item{padding:24px 5vw;text-align:center;border-right:1px solid rgba(184,145,58,.07)}
+.hbar-item:last-child{border-right:none}
+.hbar-n{font-family:var(--fd);font-size:clamp(24px,3vw,40px);color:var(--gold3);line-height:1}
+.hbar-l{font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:rgba(250,247,242,.2);margin-top:5px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+/* ── TICKER ──────────────────────────────────────────────────────────────── */
+#ticker{background:var(--goldbg);padding:14px 0;overflow:hidden;border-top:1px solid rgba(184,145,58,.12);border-bottom:1px solid rgba(184,145,58,.12)}
+.tk{display:flex;gap:48px;animation:tk 28s linear infinite;width:max-content}
+.ti{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--gold);white-space:nowrap}
+.ts{color:var(--gold3);font-size:9px;opacity:.5;line-height:2}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── WHAT IS NOURIÉ ──────────────────────────────────────────────────────── */
+#what{background:var(--cream)}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}
+.what-img{position:relative;height:560px}
+.wi-main{position:absolute;top:0;left:0;width:78%;height:86%;border-radius:6px;overflow:hidden;box-shadow:0 28px 80px rgba(26,22,18,.12)}
+.wi-main img{width:100%;height:100%;object-fit:cover}
+.wi-acc{position:absolute;bottom:0;right:0;width:54%;height:52%;border-radius:6px;overflow:hidden;box-shadow:0 14px 50px rgba(26,22,18,.1);border:4px solid var(--cream)}
+.wi-acc img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.wi-badge{position:absolute;top:46%;right:-18px;z-index:10;background:var(--cream);border-radius:4px;padding:16px 20px;box-shadow:0 12px 48px rgba(26,22,18,.1);display:flex;align-items:center;gap:12px}
+.wb-ico{width:36px;height:36px;border-radius:3px;background:var(--gi);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.wb-top{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:1px}
+.wb-bot{font-size:10px;color:var(--ink3)}
+.not-vending{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.nv-card{padding:20px;border-radius:4px;border:1.5px solid var(--cream3)}
+.nv-card.bad{border-color:rgba(184,112,112,.3);background:rgba(184,112,112,.03)}
+.nv-card.good{border-color:rgba(184,145,58,.3);background:var(--goldbg)}
+.nv-lbl{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:8px;font-weight:500}
+.nv-card.bad .nv-lbl{color:var(--rose)}
+.nv-card.good .nv-lbl{color:var(--gold)}
+.nv-item{font-size:12.5px;color:var(--ink3);padding:3px 0;line-height:1.5}
+.nv-item::before{content:'— ';color:var(--ink3)}
+.nv-card.good .nv-item::before{content:'✦ ';color:var(--gold)}
+
+/* ── HOW IT WORKS ────────────────────────────────────────────────────────── */
+#how{background:var(--ink2)}
+#how .eye{color:rgba(250,247,242,.35)}
+#how .d2{color:var(--cream)}
+.how-bmodel{border-radius:6px;overflow:hidden;box-shadow:0 16px 56px rgba(0,0,0,.3);border:1px solid rgba(184,145,58,.12);margin-bottom:72px}
+.how-bmodel img{width:100%;display:block}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.03);border-radius:6px;overflow:hidden}
+.step-c{padding:44px 32px;background:var(--ink2);position:relative;overflow:hidden;transition:background .4s}
+.step-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gi);transform:scaleX(0);transition:transform .45s var(--ease);transform-origin:left}
+.step-c:hover::before{transform:scaleX(1)}
+.step-c:hover{background:rgba(255,255,255,.03)}
+.step-n{font-family:var(--fd);font-size:72px;font-weight:400;line-height:1;color:rgba(184,145,58,.1);margin-bottom:18px;transition:color .4s}
+.step-c:hover .step-n{color:rgba(184,145,58,.18)}
+.step-ico{font-size:28px;margin-bottom:16px}
+.step-t{font-family:var(--fd);font-size:22px;color:var(--cream);margin-bottom:10px}
+.step-d{font-size:13px;color:rgba(250,247,242,.35);line-height:1.78}
+
+/* ── WHO IT'S FOR ─────────────────────────────────────────────────────────── */
+#who{background:var(--cream2)}
+.who-tabs{display:flex;gap:4px;margin-bottom:52px;overflow-x:auto;padding-bottom:4px}
+.who-tab{padding:12px 22px;border-radius:2px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);transition:all .3s;font-weight:400;white-space:nowrap;cursor:pointer;border:1.5px solid transparent}
+.who-tab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.who-tab:hover:not(.active){border-color:var(--cream3)}
+.who-panel{display:none}.who-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.who-content .pain{margin:28px 0}
+.pain-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--cream3)}
+.pain-item:last-child{border-bottom:none}
+.pain-ico{width:28px;height:28px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px}
+.pain-t{font-size:12.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.pain-d{font-size:12px;color:var(--ink3);line-height:1.6}
+.who-img-wrap{border-radius:6px;overflow:hidden;box-shadow:0 20px 64px rgba(26,22,18,.1);border:1px solid var(--cream3)}
+.who-img-wrap img{width:100%;display:block}
+
+/* ── BENEFITS ────────────────────────────────────────────────────────────── */
+#benefits{background:var(--cream)}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ben-card{padding:44px 34px;border-radius:4px;background:var(--cream2);border:1.5px solid var(--cream3);transition:all .38s;cursor:default}
+.ben-card:hover{transform:translateY(-5px);box-shadow:0 18px 56px rgba(26,22,18,.08);border-color:var(--gold3)}
+.ben-ico{font-size:30px;margin-bottom:18px}
+.ben-t{font-family:var(--fd);font-size:22px;color:var(--ink);margin-bottom:10px}
+.ben-d{font-size:13px;color:var(--ink3);line-height:1.8}
+.ben-stat{font-family:var(--fd);font-size:38px;color:var(--gold);margin-top:18px;line-height:1}
+.ben-stat-l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
+
+/* ── HOUSTON SEO ─────────────────────────────────────────────────────────── */
+#houston{background:var(--ink)}
+#houston .d2{color:var(--cream)}
+#houston .eye{color:rgba(184,145,58,.6)}
+#houston .blg{color:rgba(250,247,242,.42)}
+.city-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:72px}
+.city-card{padding:36px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:4px;text-align:center;transition:all .38s;cursor:default}
+.city-card:hover{background:rgba(255,255,255,.06);border-color:rgba(184,145,58,.2);transform:translateY(-4px)}
+.city-ico{font-size:28px;margin-bottom:12px}
+.city-name{font-family:var(--fd);font-size:20px;color:var(--cream);margin-bottom:6px}
+.city-desc{font-size:12px;color:rgba(250,247,242,.28);line-height:1.6}
+.city-tag{margin-top:10px;display:inline-block;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,58,.2);border-radius:2px;padding:3px 8px}
+.houston-seo{max-width:760px;margin:72px auto 0;padding:44px;background:rgba(255,255,255,.03);border:1px solid rgba(184,145,58,.1);border-radius:4px}
+.houston-seo p{font-size:15px;color:rgba(250,247,242,.38);line-height:1.9;margin-bottom:16px}
+.houston-seo p:last-child{margin-bottom:0}
+.houston-seo strong{color:var(--gold3)}
+
+/* ── GOVERNMENT ──────────────────────────────────────────────────────────── */
+#gov{background:var(--cream2);position:relative;overflow:hidden}
+.gov-seal{position:absolute;top:50%;right:80px;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;border:1px solid rgba(184,145,58,.1);display:flex;align-items:center;justify-content:center;pointer-events:none}
+.gov-seal::before{content:'';position:absolute;inset:12px;border-radius:50%;border:1px solid rgba(184,145,58,.08)}
+.gov-seal::after{content:'GOVERNMENT & PUBLIC SECTOR';position:absolute;font-size:8px;letter-spacing:.25em;color:rgba(184,145,58,.3);text-transform:uppercase;font-family:var(--fb)}
+.gov-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:100px;align-items:start}
+.gov-badges{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.gov-badge{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:4px;border:1.5px solid var(--cream3);background:var(--cream);transition:all .35s}
+.gov-badge:hover{border-color:var(--gold3);box-shadow:0 6px 28px rgba(184,145,58,.1)}
+.gb-ico{width:42px;height:42px;border-radius:3px;background:var(--goldbg);border:1px solid rgba(184,145,58,.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.gb-t{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.gb-d{font-size:12px;color:var(--ink3)}
+.gov-caps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.cap-item{padding:16px 18px;border-radius:4px;background:var(--cream);border-left:3px solid var(--gold);border:1px solid var(--cream3);border-left-color:var(--gold)}
+.cap-t{font-size:11px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:.03em}
+.cap-d{font-size:11px;color:var(--ink3);line-height:1.55}
+.naics-box{margin-top:28px;padding:22px 24px;border-radius:4px;background:var(--goldbg);border:1px solid rgba(184,145,58,.2)}
+.naics-t{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+.naics-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.naics-item{font-size:12px;color:var(--ink3)}
+.naics-code{font-weight:500;color:var(--ink)}
+.cert-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.cert-badge{padding:6px 12px;border-radius:2px;background:var(--ink);color:var(--cream);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.cert-badge.pending{background:transparent;border:1px solid var(--cream3);color:var(--ink3)}
+
+/* ── WHY NOURIÉ ──────────────────────────────────────────────────────────── */
+#why{background:var(--ink2)}
+#why .d2{color:var(--cream)}
+#why .eye{color:rgba(184,145,58,.5)}
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(255,255,255,.03);border-radius:4px;overflow:hidden;margin-top:72px}
+.why-card{padding:40px 28px;background:var(--ink2);border-top:2px solid transparent;transition:all .4s}
+.why-card:nth-child(1){border-color:var(--gold)}
+.why-card:nth-child(2){border-color:var(--sage)}
+.why-card:nth-child(3){border-color:var(--rose)}
+.why-card:nth-child(4){border-color:var(--slate)}
+.why-card:nth-child(5){border-color:var(--gold3)}
+.why-card:hover{background:rgba(255,255,255,.04);transform:translateY(-4px)}
+.why-n{font-family:var(--fd);font-size:48px;color:rgba(250,247,242,.06);line-height:1;margin-bottom:14px}
+.why-t{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);margin-bottom:10px}
+.why-d{font-size:12.5px;color:rgba(250,247,242,.3);line-height:1.72}
+
+/* ── CTA SECTION ─────────────────────────────────────────────────────────── */
+#cta{background:var(--cream)}
+.cta-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:100px;align-items:start}
+.cta-info .trust-logos{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+.trust-logo-item{padding:12px 16px;border-radius:3px;border:1px solid var(--cream3);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.cta-promise{margin-top:32px;padding:22px;border-radius:4px;background:var(--goldbg);border-left:3px solid var(--gold)}
+.cta-promise-t{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500}
+.cta-promise-d{font-size:13.5px;color:var(--ink3);line-height:1.75}
+
+/* Form */
+.fg{display:flex;flex-direction:column;gap:6px}
+.fl{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);font-weight:400}
+.fi,.fsel,.fta{background:var(--cream);border:1.5px solid var(--cream3);border-radius:3px;padding:14px 16px;font-family:var(--fb);font-size:13.5px;font-weight:300;color:var(--ink);outline:none;transition:all .3s;appearance:none;width:100%}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,145,58,.08)}
+.fta{resize:vertical;min-height:100px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ffull{grid-column:1/-1}
+.fnote{font-size:11px;color:var(--ink3);margin-top:10px;line-height:1.6}
+.fok{background:var(--goldbg);color:var(--gold);border:1px solid rgba(184,145,58,.2);padding:18px 22px;border-radius:4px;font-size:13px;margin-top:14px;display:none}
+
+/* ── PAGE HEADERS ────────────────────────────────────────────────────────── */
+.pg-hdr{background:var(--ink2);min-height:300px;display:flex;align-items:flex-end;padding:100px 5vw 60px;position:relative;overflow:hidden}
+.pg-hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 40%,rgba(184,145,58,.08),transparent)}
+.pg-hdr-c{position:relative;z-index:1;max-width:1340px;margin:0 auto;width:100%}
+.pg-hdr .d2{color:var(--cream)}
+.pg-hdr .blg{color:rgba(250,247,242,.35);max-width:480px;margin-top:10px}
+
+/* ── ABOUT ───────────────────────────────────────────────────────────────── */
+.about-body p{font-size:16px;line-height:1.92;color:var(--ink3);margin-bottom:20px}
+.about-vals{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:72px}
+.av{padding:32px 26px;border-radius:4px;border:1.5px solid var(--cream3);background:var(--cream2);position:relative;overflow:hidden}
+.av::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gi)}
+.avt{font-family:var(--fd);font-size:20px;color:var(--ink);margin-bottom:9px}
+.avd{font-size:13px;color:var(--ink3);line-height:1.72}
+.parent-box{background:var(--ink);border-radius:4px;padding:56px;margin-top:72px;display:flex;gap:52px;align-items:center}
+.pb-div{width:1px;height:88px;background:rgba(184,145,58,.18);flex-shrink:0}
+.pb-s .d4{color:var(--cream);margin-bottom:10px}
+.pb-s p{font-size:13px;color:rgba(250,247,242,.35);line-height:1.88}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+.faq-item{border-bottom:1.5px solid var(--cream3)}
+.faq-q{font-family:var(--fd);font-size:18px;color:var(--ink);padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .3s}
+.faq-q:hover{color:var(--gold)}
+.faq-ico{font-size:20px;color:var(--gold);transition:transform .35s}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{font-size:13.5px;color:var(--ink3);line-height:1.78;padding-bottom:20px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ── CONTACT PAGE ────────────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:88px;align-items:start}
+.ci{margin-bottom:24px}
+.ci-l{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.ci-v{font-size:15px;color:var(--ink);font-weight:300}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+#foot{background:var(--ink);padding:80px 5vw 36px}
+.foot-inner{max-width:1340px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:56px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.05)}
+.ft-logo{font-family:var(--fd);font-size:28px;color:var(--cream);letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.ft-logo span{color:var(--gold)}
+.ft-desc{font-size:12.5px;color:rgba(250,247,242,.2);line-height:1.8;max-width:220px}
+.ft-vet{display:inline-block;margin-top:14px;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,58,.2);border-radius:2px;padding:4px 10px}
+.ft-ct{font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:rgba(184,145,58,.35);margin-bottom:16px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.22);margin-bottom:9px;transition:color .3s}
+.ft-col a:hover{color:rgba(255,255,255,.65)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:10px}
+.ft-copy{font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.04em}
+.ft-leg{display:flex;gap:18px}
+.ft-leg a{font-size:10px;color:rgba(255,255,255,.12);transition:color .3s}
+.ft-leg a:hover{color:rgba(255,255,255,.4)}
+
+/* ── SCROLL REVEAL ───────────────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--reveal),transform .9s var(--reveal)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .hero-inner,.what-grid,.who-panel.active,.cta-grid,.gov-grid,.contact-grid,.parent-box{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .what-img{height:320px}
+  .ft-top{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .city-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .gov-seal{display:none}
+  .pb-div{width:60px;height:1px}
+  .parent-box{flex-direction:column;gap:26px;padding:36px}
+}
+@media(max-width:900px){
+  .sec{padding:88px 5vw}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  #mob{display:flex}
+  .ben-grid{grid-template-columns:1fr 1fr}
+  .about-vals{grid-template-columns:1fr 1fr}
+  .hbar{grid-template-columns:1fr 1fr}
+  .gov-caps{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .ben-grid{grid-template-columns:1fr}
+  .city-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .not-vending{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr;gap:32px}
+  .fgrid{grid-template-columns:1fr}
+  .naics-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .about-vals{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .hbar-item{padding:18px 5vw}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="SP('home');return false">Nouri<span>é</span></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="GS('what');return false">What We Do</a></li>
+    <li><a href="#" onclick="GS('who');return false">Industries</a></li>
+    <li><a href="#" onclick="GS('gov');return false">Government</a></li>
+    <li><a href="#" onclick="GS('houston');return false">Locations</a></li>
+    <li><a href="#" onclick="SP('about');return false">About</a></li>
+    <li><a href="#" onclick="SP('contact');return false">Contact</a></li>
+    <li><a href="#" onclick="SP('request');return false" class="nav-cta">Request Placement</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<nav id="mob">
+  <a href="#" onclick="SP('home');CM()">Home</a>
+  <a href="#" onclick="GS('what');CM()">What We Do</a>
+  <a href="#" onclick="GS('who');CM()">Industries</a>
+  <a href="#" onclick="GS('gov');CM()">Government</a>
+  <a href="#" onclick="GS('houston');CM()">Locations</a>
+  <a href="#" onclick="SP('about');CM();return false">About</a>
+  <a href="#" onclick="SP('contact');CM();return false">Contact</a>
+  <a href="#" onclick="SP('request');CM();return false">Request Placement</a>
+</nav>
+
+<!-- ═══════════════════════════════ HOME ══════════════════════════════════ -->
+<div id="pg-home" class="pg active">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-geo"></div><div class="hero-geo2"></div><div class="hero-geo3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">
+        <div class="hero-tl"></div>
+        <span class="eye" style="color:rgba(184,145,58,.6)">A Hearthstone &amp; Co. Program · Houston, TX</span>
+      </div>
+      <h1 class="d1 hero-title">Curated Workplace<br>Amenities for<em>Modern Spaces.</em></h1>
+      <p class="hero-sub">Luxury, self-service retail solutions for apartments, gyms, offices, spas, and public facilities. Zero cost to place. Passive revenue from day one.</p>
+      <div class="hero-btns">
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Request Placement</a>
+        <a href="#" onclick="SP('partner');return false" class="btn btn-outline-w">Partner With NOURIÉ</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-dot"></div>$0 Cost to Place</div>
+        <div class="trust-item"><div class="trust-dot"></div>Passive Revenue Share</div>
+        <div class="trust-item"><div class="trust-dot"></div>Weekly Restocking</div>
+        <div class="trust-item"><div class="trust-dot"></div>ADA Compliant</div>
+        <div class="trust-item"><div class="trust-dot"></div>Veteran-Owned</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="vid-wrap">
+        <div class="vid-inner">
+          <div class="vid-play" onclick="tryVid()">
+            <svg width="22" height="22" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="#1A1612"/></svg>
+          </div>
+          <div class="vid-label">See NOURIÉ in Action</div>
+          <div class="vid-sub">60 second overview</div>
+          <div class="vid-badges">
+            <div class="vid-badge"><div class="vid-badge-n">$0</div><div class="vid-badge-l">Cost to You</div></div>
+            <div class="vid-badge"><div class="vid-badge-n">20%</div><div class="vid-badge-l">Revenue Share</div></div>
+            <div class="vid-badge"><div class="vid-badge-n">2 hrs</div><div class="vid-badge-l">To Install</div></div>
+          </div>
+        </div>
+        <iframe id="yt-hero" src="" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:none" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hbar-item"><div class="hbar-n">$0</div><div class="hbar-l">Capital Required</div></div>
+    <div class="hbar-item"><div class="hbar-n">20%</div><div class="hbar-l">Revenue Share</div></div>
+    <div class="hbar-item"><div class="hbar-n">60+</div><div class="hbar-l">Premium Products</div></div>
+    <div class="hbar-item"><div class="hbar-n">Weekly</div><div class="hbar-l">Managed Service</div></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div id="ticker">
+  <div class="tk">
+    <span class="ti">Luxury Workplace Amenities</span><span class="ts">✦</span>
+    <span class="ti">Houston · Katy · Sugar Land · The Woodlands · Pearland</span><span class="ts">✦</span>
+    <span class="ti">Government &amp; Municipal Solutions</span><span class="ts">✦</span>
+    <span class="ti">Passive Revenue Share</span><span class="ts">✦</span>
+    <span class="ti">Zero Capital Investment</span><span class="ts">✦</span>
+    <span class="ti">ADA Compliant · Cashless Payments</span><span class="ts">✦</span>
+    <span class="ti">Premium Brands · Curated Products</span><span class="ts">✦</span>
+    <span class="ti">Luxury Workplace Amenities</span><span class="ts">✦</span>
+    <span class="ti">Houston · Katy · Sugar Land · The Woodlands · Pearland</span><span class="ts">✦</span>
+    <span class="ti">Government &amp; Municipal Solutions</span><span class="ts">✦</span>
+    <span class="ti">Passive Revenue Share</span><span class="ts">✦</span>
+    <span class="ti">Zero Capital Investment</span><span class="ts">✦</span>
+    <span class="ti">ADA Compliant · Cashless Payments</span><span class="ts">✦</span>
+    <span class="ti">Premium Brands · Curated Products</span><span class="ts">✦</span>
+  </div>
+</div>
+
+<!-- WHAT IS NOURIÉ -->
+<section id="what" class="sec">
+  <div class="si what-grid">
+    <div class="what-img rv">
+      <div class="wi-main"><img src="images/concept.jpg" alt="NOURIÉ amenity station in corporate lobby"></div>
+      <div class="wi-acc"><img src="images/bmodel.png" alt="NOURIÉ zero cost business model"></div>
+      <div class="wi-badge">
+        <div class="wb-ico">✦</div>
+        <div><div class="wb-top">Not a vending machine.</div><div class="wb-bot">A curated amenity experience.</div></div>
+      </div>
+    </div>
+    <div class="rv d2">
+      <div class="rule"><div class="rl"></div><span class="eye" style="color:var(--gold)">What Is NOURIÉ</span></div>
+      <h2 class="d2" style="color:var(--ink);margin-bottom:18px">Unattended retail,<em> elevated.</em></h2>
+      <p class="blg" style="color:var(--ink3);margin-bottom:18px">NOURIÉ installs fully managed, custom-branded premium amenity stations in your property. We are not in the vending business. We are in the business of elevating spaces — through curated products, luxury branding, and frictionless self-service technology.</p>
+      <p class="blg" style="color:var(--ink3);margin-bottom:28px">Every NOURIÉ station features premium wellness drinks, functional beverages, clean snacks, and beauty essentials from brands your residents and employees already recognize and trust. Touchscreen UI. Cashless payments. Custom-wrapped to match your space.</p>
+      <div class="not-vending">
+        <div class="nv-card bad">
+          <div class="nv-lbl">Traditional Vending</div>
+          <div class="nv-item">Generic, low-quality products</div>
+          <div class="nv-item">Dated, ugly machines</div>
+          <div class="nv-item">No branding integration</div>
+          <div class="nv-item">Reactive maintenance</div>
+          <div class="nv-item">Zero revenue for you</div>
+        </div>
+        <div class="nv-card good">
+          <div class="nv-lbl">NOURIÉ Standard</div>
+          <div class="nv-item">Premium curated brands</div>
+          <div class="nv-item">Luxury branded stations</div>
+          <div class="nv-item">Matches your aesthetic</div>
+          <div class="nv-item">Weekly managed service</div>
+          <div class="nv-item">Up to 20% revenue share</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="sec">
+  <div class="si">
+    <div class="sh rv">
+      <div class="rule"><div class="rl" style="background:var(--gold)"></div><span class="eye">How It Works</span></div>
+      <h2 class="d2">Simple for you.<em> Exceptional for them.</em></h2>
+      <p class="blg" style="color:rgba(250,247,242,.4);max-width:560px;margin-top:12px">The entire NOURIÉ process — from discovery call to operational station — requires less than 2 hours of your time. Ever.</p>
+    </div>
+    <div class="how-bmodel rv">
+      <img src="images/bmodel.png" alt="NOURIÉ — 30-day trial, we install, we stock, you earn">
+    </div>
+    <div class="steps-grid">
+      <div class="step-c rv"><div class="step-n">01</div><div class="step-ico">🏗️</div><div class="step-t">We Install</div><div class="step-d">We deliver, wrap, and install your custom NOURIÉ station in under 2 hours. Machine placement, electrical setup, cashless payment activation — fully handled by our team. Zero work for you.</div></div>
+      <div class="step-c rv d1"><div class="step-n">02</div><div class="step-ico">✦</div><div class="step-t">We Curate &amp; Stock</div><div class="step-d">Our team selects products based on your resident or client demographic. OLIPOP, Vital Proteins, Celsius, Liquid IV, Chomps, Kiehl's — curated brands, not commodity filler. Every slot is intentional.</div></div>
+      <div class="step-c rv d2"><div class="step-n">03</div><div class="step-ico">💳</div><div class="step-t">Guests Tap &amp; Pay</div><div class="step-d">Your residents, members, employees, or visitors browse and purchase contactlessly. Apple Pay, Google Pay, Visa, MC, Amex. Touchscreen interface. ADA compliant. Real-time transaction data.</div></div>
+      <div class="step-c rv d3"><div class="step-n">04</div><div class="step-ico">📊</div><div class="step-t">We Maintain &amp; Optimize</div><div class="step-d">Weekly restocking and maintenance handled entirely by NOURIÉ. Data-driven product rotation. Monthly revenue share deposited by the 15th. Your account manager is always one message away.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section id="who" class="sec">
+  <div class="si">
+    <div class="sh rv">
+      <div class="rule"><div class="rl"></div><span class="eye" style="color:var(--gold)">Industries We Serve</span></div>
+      <h2 class="d2" style="color:var(--ink)">Built for every<em> premium space.</em></h2>
+      <p class="blg" style="color:var(--ink3);max-width:560px;margin-top:12px">NOURIÉ is purpose-engineered for spaces where quality standards are non-negotiable and the guest experience defines the brand.</p>
+    </div>
+    <div class="who-tabs rv">
+      <button class="who-tab active" onclick="showWho('apt',this)">🏢 Luxury Apartments</button>
+      <button class="who-tab" onclick="showWho('gym',this)">🏋️ Fitness &amp; Gyms</button>
+      <button class="who-tab" onclick="showWho('spa',this)">🧖 Spas &amp; Wellness</button>
+      <button class="who-tab" onclick="showWho('med',this)">🏥 Medical Offices</button>
+      <button class="who-tab" onclick="showWho('corp',this)">💼 Corporate Offices</button>
+      <button class="who-tab" onclick="showWho('gov2',this)">🏛️ Government</button>
+    </div>
+
+    <!-- APARTMENTS -->
+    <div id="who-apt" class="who-panel active">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Luxury Residential Properties</h3>
+        <p class="blg" style="color:var(--ink3)">Residents expect premium. A NOURIÉ station in your lobby signals intentional design and amenity-forward living — before they even open their apartment door.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Amenities that underperform expectations</div><div class="pain-d">Generic vending machines undermine premium positioning and tenant satisfaction scores.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">High turnover from unmet lifestyle needs</div><div class="pain-d">Residents leave when convenience doesn't match the rent they're paying.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">NOURIÉ adds $0 cost, earns passive revenue</div><div class="pain-d">Premium wellness station at no capital investment — plus a monthly revenue share check.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Elevates your property listing</div><div class="pain-d">"Curated amenity station" is a genuine differentiator in any Houston luxury apartment market.</div></div></div>
+        </div>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Add NOURIÉ to Your Property</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/office.png" alt="NOURIÉ in luxury apartment lobby"></div>
+    </div>
+
+    <!-- GYM -->
+    <div id="who-gym" class="who-panel">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Fitness Centers &amp; Gyms</h3>
+        <p class="blg" style="color:var(--ink3)">Your members expect performance. NOURIÉ delivers premium protein, recovery drinks, and clean energy exactly where and when they need it — driving additional spend and extending dwell time.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Revenue left on the gym floor</div><div class="pain-d">Members leave for Whole Foods or Smoothie King between sessions — lost sales every single day.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Staffed supplement bars are expensive</div><div class="pain-d">Labor costs, inventory management, and shrinkage make traditional retail unsustainable.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">NOURIÉ captures post-workout revenue</div><div class="pain-d">RXBar, Fairlife, Chomps, Celsius, Liquid IV — the brands members are already buying elsewhere.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Zero staffing. 100% automated.</div><div class="pain-d">No payroll, no shrinkage, no training. NOURIÉ handles restocking, maintenance, and payments.</div></div></div>
+        </div>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Add NOURIÉ to Your Gym</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/gym.png" alt="NOURIÉ in fitness center"></div>
+    </div>
+
+    <!-- SPA -->
+    <div id="who-spa" class="who-panel">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Spas &amp; Wellness Studios</h3>
+        <p class="blg" style="color:var(--ink3)">Your clients arrive expecting to feel elevated. NOURIÉ extends that experience with collagen waters, sparkling botanicals, and prestige personal care — before, during, and after their service.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Retail adds front-desk burden</div><div class="pain-d">Your team is focused on services, not managing retail inventory and transactions.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Generic vending undermines the spa brand</div><div class="pain-d">A Pepsi machine in your lobby is a $40,000-a-year brand statement. A negative one.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Curated beauty in vending form</div><div class="pain-d">Kiehl's, Tarte, Touchland, Vital Proteins, Rishi Tea — brands that match your aesthetic exactly.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Fully managed. Always curated.</div><div class="pain-d">Your station looks intentional every single day. We handle everything.</div></div></div>
+        </div>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Add NOURIÉ to Your Spa</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/spa.png" alt="NOURIÉ in spa environment"></div>
+    </div>
+
+    <!-- MED -->
+    <div id="who-med" class="who-panel">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Medical Offices &amp; Clinics</h3>
+        <p class="blg" style="color:var(--ink3)">Your staff works demanding shifts. Your patients wait in your lobby. NOURIÉ provides clean protein, immune support, functional beverages, and wellness essentials — serving both without requiring any staff involvement.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Nurse stations depleted by 10am</div><div class="pain-d">Clinical staff working 12-hour shifts can't leave the floor to find food. Productivity suffers.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Patient waiting rooms feel clinical</div><div class="pain-d">Generic vending in a healthcare setting communicates indifference — not care.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Healthcare-grade product curation</div><div class="pain-d">Advil, Emergen-C, Liquid IV, RXBar, Chomps, Smartwater — essentials for staff and patients.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">ADA compliant. Allergy-safe range.</div><div class="pain-d">NOURIÉ machines meet ADA guidelines. Product selection vetted for common dietary restrictions.</div></div></div>
+        </div>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Add NOURIÉ to Your Facility</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/machine-dark.png" alt="NOURIÉ in medical office"></div>
+    </div>
+
+    <!-- CORP -->
+    <div id="who-corp" class="who-panel">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Corporate Offices</h3>
+        <p class="blg" style="color:var(--ink3)">Employee wellbeing is no longer optional. NOURIÉ gives your team premium access to wellness products without leaving the building — improving productivity, satisfaction, and retention.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Break room vending signals low standards</div><div class="pain-d">What's in your break room tells employees exactly how much you value them.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Employees leave the building for lunch</div><div class="pain-d">Lost productivity, extended breaks, and missed collaboration opportunities every day.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Premium wellness at their desk</div><div class="pain-d">OLIPOP, GT's Kombucha, Celsius, Chomps, Perfect Bar — premium brands, 30 seconds away.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">HR-reportable amenity upgrade</div><div class="pain-d">NOURIÉ is a real, measurable employee benefit — at zero cost to your benefits budget.</div></div></div>
+        </div>
+        <a href="#" onclick="SP('request');return false" class="btn btn-gold">Add NOURIÉ to Your Office</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/office.png" alt="NOURIÉ in corporate office"></div>
+    </div>
+
+    <!-- GOV -->
+    <div id="who-gov2" class="who-panel">
+      <div class="who-content">
+        <h3 class="d3" style="color:var(--ink);margin-bottom:8px">Government &amp; Public Facilities</h3>
+        <p class="blg" style="color:var(--ink3)">NOURIÉ provides contract-ready unattended retail solutions for municipal buildings, transit hubs, federal facilities, and public wellness spaces. ADA compliant. Modern payment systems. GSA-schedule positioning underway.</p>
+        <div class="pain">
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">Outdated concession infrastructure</div><div class="pain-d">Aging vending machines in public buildings create negative constituent experiences.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(184,112,112,.1)">❌</div><div><div class="pain-t">ADA and payment compliance gaps</div><div class="pain-d">Legacy equipment often fails to meet current ADA guidelines or accept modern payment methods.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Contract-ready. Certification-backed.</div><div class="pain-d">Veteran-owned small business positioning. SAM.gov registration. NAICS codes on file.</div></div></div>
+          <div class="pain-item"><div class="pain-ico" style="background:rgba(92,122,92,.1)">✓</div><div><div class="pain-t">Modern public amenity infrastructure</div><div class="pain-d">Touchscreen, cashless, ADA-compliant stations that meet 21st century constituent expectations.</div></div></div>
+        </div>
+        <a href="#" onclick="GS('gov');return false" class="btn btn-gold">View Government Capabilities</a>
+      </div>
+      <div class="who-img-wrap"><img src="images/concept.jpg" alt="NOURIÉ government facility solution"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="sec" style="background:var(--cream2)">
+  <div class="si">
+    <div class="sh shc rv">
+      <div class="rule" style="justify-content:center"><div class="rl"></div><span class="eye" style="color:var(--gold)">Business Value</span><div class="rl"></div></div>
+      <h2 class="d2" style="color:var(--ink)">Why property owners<em> choose NOURIÉ.</em></h2>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card rv">
+        <div class="ben-ico">💰</div>
+        <div class="ben-t">Passive Revenue Stream</div>
+        <div class="ben-d">Earn a percentage of every transaction — deposited monthly with a detailed statement. Your unused square footage becomes a revenue-generating asset from day one.</div>
+        <div class="ben-stat">Up to 20%</div>
+        <div class="ben-stat-l">Revenue Share</div>
+      </div>
+      <div class="ben-card rv d1">
+        <div class="ben-ico">⚡</div>
+        <div class="ben-t">Zero Operational Burden</div>
+        <div class="ben-d">Installation, stocking, maintenance, payments, and customer service — NOURIÉ handles everything. You never touch the machine. You never manage inventory. You just receive revenue.</div>
+        <div class="ben-stat">0</div>
+        <div class="ben-stat-l">Hours of Your Time</div>
+      </div>
+      <div class="ben-card rv d2">
+        <div class="ben-ico">⭐</div>
+        <div class="ben-t">Tenant &amp; Employee Satisfaction</div>
+        <div class="ben-d">A NOURIÉ station signals that you care about the experience of being in your space — not just the space itself. Premium amenities drive measurable increases in satisfaction and retention.</div>
+        <div class="ben-stat">+NPS</div>
+        <div class="ben-stat-l">Tenant Satisfaction</div>
+      </div>
+      <div class="ben-card rv">
+        <div class="ben-ico">🎨</div>
+        <div class="ben-t">Premium Brand Integration</div>
+        <div class="ben-d">Every NOURIÉ station is custom-wrapped to match your property's aesthetic and brand language. It doesn't look like a vending machine — it looks like it belongs.</div>
+        <div class="ben-stat">100%</div>
+        <div class="ben-stat-l">Brand Custom</div>
+      </div>
+      <div class="ben-card rv d1">
+        <div class="ben-ico">📊</div>
+        <div class="ben-t">Data-Driven Curation</div>
+        <div class="ben-d">Real-time sales data drives product rotation. We track what sells, what doesn't, and continuously optimize the mix for your specific environment and demographic.</div>
+        <div class="ben-stat">60+</div>
+        <div class="ben-stat-l">Premium SKUs</div>
+      </div>
+      <div class="ben-card rv d2">
+        <div class="ben-ico">🛡️</div>
+        <div class="ben-t">No Risk. 30-Day Trial.</div>
+        <div class="ben-d">We begin with a 30-day free trial. If NOURIÉ doesn't deliver, we remove the station at no charge — no questions, no penalties, no awkward conversations.</div>
+        <div class="ben-stat">30-Day</div>
+        <div class="ben-stat-l">Free Trial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSTON SEO -->
+<section id="houston" class="sec">
+  <div class="si">
+    <div class="sh rv">
+      <div class="rule"><div class="rl" style="background:var(--gold)"></div><span class="eye">Service Area</span></div>
+      <h2 class="d2">Serving Houston &amp;<em> Surrounding Areas.</em></h2>
+      <p class="blg" style="color:rgba(250,247,242,.42);max-width:580px;margin-top:12px">NOURIÉ is Houston's premier luxury workplace amenity solution. We currently serve Greater Houston and are expanding across the region — bringing curated, premium self-service retail to modern properties everywhere.</p>
+    </div>
+    <div class="city-grid">
+      <div class="city-card rv">
+        <div class="city-ico">🌆</div>
+        <div class="city-name">Houston</div>
+        <div class="city-desc">Offices, medical centers, luxury high-rises, and hospitality venues across the Houston metro. Primary service market.</div>
+        <div class="city-tag">Primary Market</div>
+      </div>
+      <div class="city-card rv d1">
+        <div class="city-ico">🏡</div>
+        <div class="city-name">Katy, TX</div>
+        <div class="city-desc">Master-planned communities, fitness studios, medical offices, and corporate campuses in the Katy corridor.</div>
+        <div class="city-tag">Active Placements</div>
+      </div>
+      <div class="city-card rv d2">
+        <div class="city-ico">🌿</div>
+        <div class="city-name">Sugar Land</div>
+        <div class="city-desc">Luxury apartments, corporate headquarters, and medical facilities in Sugar Land's premium commercial zones.</div>
+        <div class="city-tag">Active Placements</div>
+      </div>
+      <div class="city-card rv d3">
+        <div class="city-ico">🌲</div>
+        <div class="city-name">The Woodlands</div>
+        <div class="city-desc">High-end residential communities, executive office parks, and wellness centers across The Woodlands district.</div>
+        <div class="city-tag">Active Placements</div>
+      </div>
+      <div class="city-card rv d4">
+        <div class="city-ico">🏙️</div>
+        <div class="city-name">Pearland</div>
+        <div class="city-desc">Growing residential and commercial corridors, medical office complexes, and fitness facilities in Pearland.</div>
+        <div class="city-tag">Active Placements</div>
+      </div>
+    </div>
+    <div class="houston-seo rv">
+      <p>NOURIÉ is the leading <strong>luxury vending machine service in Houston, TX</strong>. Unlike traditional vending machine operators, we provide a fully managed, premium <strong>unattended retail solution</strong> for properties that demand quality — including corporate offices, apartment complexes, gyms, medical facilities, and government buildings across Harris County and surrounding areas.</p>
+      <p>If you are searching for <strong>smart vending machines for apartments in Houston</strong>, <strong>wellness amenities for office buildings in Katy TX</strong>, or <strong>managed vending services in Sugar Land and The Woodlands</strong> — NOURIÉ is the only operator in the Houston market delivering a true luxury amenity experience at zero cost to property owners.</p>
+      <p>Our <strong>workplace amenity solutions in Houston</strong> feature premium brands including OLIPOP, Vital Proteins, Celsius, Liquid IV, Chomps, and RXBar — curated specifically for your property's demographic and available with full custom branding integration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNMENT -->
+<section id="gov" class="sec" style="background:var(--cream2);position:relative;overflow:hidden">
+  <div class="gov-seal"></div>
+  <div class="si">
+    <div class="gov-grid">
+      <div class="rv">
+        <div class="rule"><div class="rl"></div><span class="eye" style="color:var(--gold)">Government &amp; Public Sector</span></div>
+        <h2 class="d2" style="color:var(--ink);margin-bottom:18px">Contract-ready<em> unattended retail.</em></h2>
+        <p class="blg" style="color:var(--ink3);margin-bottom:28px">NOURIÉ provides ADA-compliant, modern unattended retail solutions for municipal buildings, federal facilities, transit hubs, public wellness centers, and government office complexes. We understand procurement, compliance, and the operational standards required to serve the public sector.</p>
+
+        <div class="gov-badges">
+          <div class="gov-badge">
+            <div class="gb-ico">🇺🇸</div>
+            <div><div class="gb-t">Veteran-Owned Small Business</div><div class="gb-d">NOURIÉ is a program of Hearthstone &amp; Co., a certified veteran-owned business entity based in Houston, TX.</div></div>
+          </div>
+          <div class="gov-badge">
+            <div class="gb-ico">✓</div>
+            <div><div class="gb-t">SAM.gov Registration</div><div class="gb-d">Registered in the System for Award Management. Available for federal contract and procurement vehicles.</div></div>
+          </div>
+          <div class="gov-badge">
+            <div class="gb-ico">♿</div>
+            <div><div class="gb-t">ADA Compliant Systems</div><div class="gb-d">All NOURIÉ stations meet ADA accessibility guidelines. Touchscreen UI with accessibility mode. Cashless payment at standard reach range.</div></div>
+          </div>
+          <div class="gov-badge">
+            <div class="gb-ico">🔒</div>
+            <div><div class="gb-t">Modern Payment &amp; Data Security</div><div class="gb-d">PCI-compliant payment processing. Apple Pay, Google Pay, Visa, MC, Amex. No cash handling required.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv d2">
+        <div class="naics-box">
+          <div class="naics-t">NAICS Codes — Unattended Retail &amp; Facility Services</div>
+          <div class="naics-grid">
+            <div class="naics-item"><span class="naics-code">454210</span> — Vending Machine Operators</div>
+            <div class="naics-item"><span class="naics-code">722514</span> — Cafeterias, Grill Buffets</div>
+            <div class="naics-item"><span class="naics-code">445299</span> — All Other Specialty Food</div>
+            <div class="naics-item"><span class="naics-code">532420</span> — Office Machinery Rental</div>
+          </div>
+          <div style="margin-top:14px;font-size:11px;color:var(--ink3)">Additional NAICS codes available upon request for specific procurement requirements.</div>
+        </div>
+
+        <div class="gov-caps" style="margin-top:22px">
+          <div class="cap-item">
+            <div class="cap-t">Unattended Retail Solutions</div>
+            <div class="cap-d">Fully automated, self-service retail for public and government facilities requiring modern convenience infrastructure.</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-t">Municipal Building Amenities</div>
+            <div class="cap-d">Ideal for city hall, courthouse, library, and public administration facilities serving constituent and staff needs.</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-t">Transit Hub Solutions</div>
+            <div class="cap-d">High-traffic, cashless amenity stations for transit centers, airports, and public transportation facilities.</div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-t">Public Wellness Spaces</div>
+            <div class="cap-d">Community centers, public recreation facilities, and wellness hubs — healthy, curated options for all demographics.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px">
+          <div style="font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500">Certifications &amp; Registrations</div>
+          <div class="cert-row">
+            <span class="cert-badge">Veteran-Owned</span>
+            <span class="cert-badge">SAM.gov Registered</span>
+            <span class="cert-badge pending">WOSB — In Progress</span>
+            <span class="cert-badge pending">HUBZone — Pursuing</span>
+          </div>
+          <p style="font-size:11px;color:var(--ink3);margin-top:14px;line-height:1.65">For capability statements, past performance documentation, or procurement inquiries, contact our contracting team directly at <a href="mailto:contracts@hearthstoneandco.com" style="color:var(--gold)">contracts@hearthstoneandco.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOURIÉ -->
+<section id="why-sec" class="sec">
+  <div class="si">
+    <div class="sh shc rv">
+      <div class="rule" style="justify-content:center"><div class="rl" style="background:var(--gold)"></div><span class="eye">Why NOURIÉ</span><div class="rl" style="background:var(--gold)"></div></div>
+      <h2 class="d2" style="color:var(--cream)">What competitors<em> can't replicate.</em></h2>
+      <p class="blg" style="color:rgba(250,247,242,.35);max-width:540px;margin:12px auto 0">Five pillars that separate NOURIÉ from every traditional vending operator in Houston and nationally.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv"><div class="why-n">01</div><div class="why-t">Premium Brand Curation</div><div class="why-d">Kiehl's, Vital Proteins, OLIPOP, Hu Kitchen — we carry what belongs at Equinox, not what belongs in a break room. Every product earns its slot.</div></div>
+      <div class="why-card rv d1"><div class="why-n">02</div><div class="why-t">Custom Brand Integration</div><div class="why-d">Full-surface custom wrap in your brand palette. The station becomes part of your space's visual identity — not a third-party intrusion.</div></div>
+      <div class="why-card rv d2"><div class="why-n">03</div><div class="why-t">Beauty in Vending</div><div class="why-d">The only operator in Houston carrying prestige personal care — Touchland, Kiehl's, Kitsch, Native. Creates word-of-mouth that no competitor can buy.</div></div>
+      <div class="why-card rv d3"><div class="why-n">04</div><div class="why-t">Boutique Operations</div><div class="why-d">Merchandised like a luxury retail display. Products always faced. Labels always visible. Stock always full. Never neglected, never generic.</div></div>
+      <div class="why-card rv d4"><div class="why-n">05</div><div class="why-t">Government Capability</div><div class="why-d">Contract-ready infrastructure, certifications, and procurement positioning no local competitor has built. We serve the public sector professionally.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band" style="background:var(--cream2);padding:120px 5vw;text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;border:1px solid rgba(184,145,58,.06);pointer-events:none"></div>
+  <div style="max-width:680px;margin:0 auto" class="rv">
+    <div class="rule" style="justify-content:center;margin-bottom:22px"><div class="rl"></div><span class="eye" style="color:var(--gold)">Get Started</span><div class="rl"></div></div>
+    <h2 class="d2" style="color:var(--ink)">Bring NOURIÉ to<em> your property.</em></h2>
+    <p class="blg" style="color:var(--ink3);max-width:460px;margin:14px auto 0">30-day free trial. Zero cost. Zero commitment. We handle everything from installation to weekly service.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:46px;flex-wrap:wrap">
+      <a href="#" onclick="SP('request');return false" class="btn btn-gold">Request Placement</a>
+      <a href="#" onclick="SP('contact');return false" class="btn btn-outline">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /pg-home -->
+
+<!-- ═══════════════════════════ REQUEST PAGE ══════════════════════════════ -->
+<div id="pg-request" class="pg">
+  <div class="pg-hdr">
+    <div class="pg-hdr-c">
+      <span class="eye" style="color:rgba(184,145,58,.5);display:block;margin-bottom:10px">Start Your Trial</span>
+      <h1 class="d2">Bring NOURIÉ to Your Property</h1>
+      <p class="blg">No cost. No lease. No commitment. We respond within 24 hours.</p>
+    </div>
+  </div>
+  <section class="sec" style="background:var(--cream)">
+    <div class="si cta-grid">
+      <div class="rv">
+        <div class="rule" style="margin-bottom:16px"><div class="rl"></div><span class="eye" style="color:var(--gold)">What to Expect</span></div>
+        <div class="ci"><div class="ci-l">Step 1</div><div class="ci-v">We review your submission and contact you within 24 hours to schedule a discovery visit.</div></div>
+        <div class="ci"><div class="ci-l">Step 2</div><div class="ci-v">We assess your space, foot traffic, and recommend a custom NOURIÉ configuration.</div></div>
+        <div class="ci"><div class="ci-l">Step 3</div><div class="ci-v">We design your custom machine wrap and product mix — you approve before anything ships.</div></div>
+        <div class="ci"><div class="ci-l">Step 4</div><div class="ci-v">Installation and full stocking in under 2 hours. Your 30-day trial begins immediately.</div></div>
+        <div class="cta-promise">
+          <div class="cta-promise-t">Our Promise</div>
+          <div class="cta-promise-d">No obligation after your free trial. If NOURIÉ isn't the right fit, we remove the station — no charges, no questions, no penalties.</div>
+        </div>
+        <div class="trust-logos">
+          <div class="trust-logo-item">Veteran-Owned</div>
+          <div class="trust-logo-item">SAM.gov Registered</div>
+          <div class="trust-logo-item">ADA Compliant</div>
+          <div class="trust-logo-item">Houston, TX</div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <form name="placement-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="req-form">
+          <input type="hidden" name="form-name" value="placement-request">
+          <input name="bot-field" style="display:none">
+          <div class="fgrid">
+            <div class="fg"><label class="fl">Your Name *</label><input class="fi" type="text" name="name" required></div>
+            <div class="fg"><label class="fl">Company / Property Name *</label><input class="fi" type="text" name="company" required></div>
+            <div class="fg ffull"><label class="fl">Property Type *</label><select class="fsel" name="property-type" required><option value="" disabled selected>Select your property type</option><option>Luxury Apartment Complex</option><option>Corporate Office</option><option>Fitness Center / Gym</option><option>Medical Office / Clinic</option><option>Spa / Wellness Studio</option><option>Government / Municipal Building</option><option>Hotel / Hospitality</option><option>Warehouse / Logistics</option><option>Co-Working Space</option><option>Other</option></select></div>
+            <div class="fg"><label class="fl">Location / City *</label><input class="fi" type="text" name="location" placeholder="e.g. Houston, Katy, Sugar Land" required></div>
+            <div class="fg"><label class="fl">Est. Daily Foot Traffic</label><select class="fsel" name="traffic"><option value="" disabled selected>Select range</option><option>Under 50</option><option>50–150</option><option>150–400</option><option>400–800</option><option>800+</option></select></div>
+            <div class="fg"><label class="fl">Email Address *</label><input class="fi" type="email" name="email" required></div>
+            <div class="fg"><label class="fl">Phone Number *</label><input class="fi" type="tel" name="phone" required></div>
+            <div class="fg ffull"><label class="fl">Package Interest</label><select class="fsel" name="package"><option value="" disabled selected>Which package?</option><option>NOURIÉ Well — Wellness Focus (15%)</option><option>NOURIÉ Gourmet — Premium Selection (18%)</option><option>NOURIÉ Essentials — Full Service (20%)</option><option>Government / Contract Placement</option><option>Not sure yet</option></select></div>
+            <div class="fg ffull"><label class="fl">Additional Notes</label><textarea class="fta" name="message" placeholder="Tell us about your space, current vending setup, or any specific requirements…"></textarea></div>
+          </div>
+          <div style="margin-top:12px"><button type="submit" class="btn btn-gold btn-w">Submit Placement Request →</button></div>
+          <p class="fnote">No cost. No commitment. We respond within 24 hours. For government inquiries: <a href="mailto:contracts@hearthstoneandco.com" style="color:var(--gold)">contracts@hearthstoneandco.com</a></p>
+        </form>
+        <div class="fok" id="req-ok">✦ &nbsp;Thank you — your request has been received. Our team will be in touch within 24 hours.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════════════════════ PARTNER PAGE ════════════════════════════ -->
+<div id="pg-partner" class="pg">
+  <div class="pg-hdr">
+    <div class="pg-hdr-c">
+      <span class="eye" style="color:rgba(184,145,58,.5);display:block;margin-bottom:10px">Partner Program</span>
+      <h1 class="d2">Partner With NOURIÉ</h1>
+      <p class="blg">Distribution partners, property management companies, and regional operators — let's build something together.</p>
+    </div>
+  </div>
+  <section class="sec" style="background:var(--cream)">
+    <div class="si">
+      <div style="max-width:800px;margin:0 auto" class="rv">
+        <div class="rule" style="margin-bottom:20px"><div class="rl"></div><span class="eye" style="color:var(--gold)">Partnership Opportunities</span></div>
+        <h2 class="d3" style="color:var(--ink);margin-bottom:24px">Scale NOURIÉ<em> across your portfolio.</em></h2>
+        <p class="blg" style="color:var(--ink3);margin-bottom:20px">If you manage multiple properties, operate a regional portfolio, or represent a brand seeking premium vending distribution — NOURIÉ has a partnership model built for you. We are actively seeking property management companies, real estate investment groups, and regional operators in the Greater Houston market and beyond.</p>
+        <p class="blg" style="color:var(--ink3);margin-bottom:36px">Partnership inquiries receive a dedicated account manager, enhanced revenue share structures, and priority placement scheduling across your portfolio.</p>
+        <a href="#" onclick="SP('contact');return false" class="btn btn-gold">Contact Our Partnership Team</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════ ABOUT PAGE ═══════════════════════════════ -->
+<div id="pg-about" class="pg">
+  <div class="pg-hdr">
+    <div class="pg-hdr-c">
+      <span class="eye" style="color:rgba(184,145,58,.5);display:block;margin-bottom:10px">Our Story</span>
+      <h1 class="d2">The NOURIÉ Story</h1>
+      <p class="blg">Born in Houston. Built for a higher standard.</p>
+    </div>
+  </div>
+  <section class="sec" style="background:var(--cream)">
+    <div class="si">
+      <div class="about-body rv" style="max-width:780px">
+        <div class="rule" style="margin-bottom:14px"><div class="rl"></div><span class="eye" style="color:var(--gold)">Why We Built This</span></div>
+        <h2 class="d3" style="color:var(--ink);margin-bottom:28px">We are not in the<em> vending business.</em></h2>
+        <p>Some ideas begin with a problem. NOURIÉ began with a standard — the belief that every great space deserves amenities that reflect the quality of the space itself. Walking into a beautifully designed office, luxury apartment, or boutique gym and encountering a dated vending machine in the corner is a missed opportunity. One that communicates the opposite of everything the property was designed to convey.</p>
+        <p>NOURIÉ was created to eliminate that gap. We are a curated workplace amenity company — not a vending operator. The distinction matters in every decision we make: which products we carry, how we design our stations, how we service our partners, and how we position our company for long-term growth including government and institutional contracting.</p>
+        <p>Based in Houston, Texas. Veteran-owned. Built on the belief that business can be both principled and exceptional.</p>
+      </div>
+      <div class="about-vals">
+        <div class="av rv"><div class="avt">Premium</div><div class="avd">Every product we carry would be at home on the shelf at Erewhon or in the locker room at Equinox. The standard doesn't move.</div></div>
+        <div class="av rv d1"><div class="avt">Minimal</div><div class="avd">Visually clean. Operationally simple. We handle complexity so our partners experience none of it.</div></div>
+        <div class="av rv d2"><div class="avt">Principled</div><div class="avd">Veteran-owned and operated. We bring military precision and integrity to every partnership, placement, and contract.</div></div>
+      </div>
+      <div class="parent-box rv">
+        <div class="pb-s"><span class="eye" style="color:rgba(184,145,58,.4);display:block;margin-bottom:9px">Parent Company</span><div class="d4">Hearthstone &amp; Co.<em> Workforce Solutions</em></div><p>NOURIÉ is a specialty program of Hearthstone &amp; Co. Workforce Solutions, a credentialed healthcare staffing and business services firm serving Greater Houston — a subsidiary of The Shiylohe Collective, a veteran-owned parent company.</p></div>
+        <div class="pb-div"></div>
+        <div class="pb-s"><span class="eye" style="color:rgba(184,145,58,.4);display:block;margin-bottom:9px">The Shiylohe Collective</span><div class="d4">Veteran-<em>owned.</em><br>Houston-based.</div><p>Built on the principle that business can be both principled and exceptional. NOURIÉ carries that standard into every space, every contract, and every community it serves.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════ CONTACT PAGE ═════════════════════════════ -->
+<div id="pg-contact" class="pg">
+  <div class="pg-hdr">
+    <div class="pg-hdr-c">
+      <span class="eye" style="color:rgba(184,145,58,.5);display:block;margin-bottom:10px">Get In Touch</span>
+      <h1 class="d2">Contact NOURIÉ</h1>
+      <p class="blg">Questions, partnership inquiries, government contracting — we'd love to hear from you.</p>
+    </div>
+  </div>
+  <section class="sec" style="background:var(--cream)">
+    <div class="si contact-grid">
+      <div class="rv">
+        <div class="rule" style="margin-bottom:20px"><div class="rl"></div><span class="eye" style="color:var(--gold)">Reach Us</span></div>
+        <div class="ci"><div class="ci-l">Phone</div><div class="ci-v"><a href="tel:5126300794">(512) 630-0794</a></div></div>
+        <div class="ci"><div class="ci-l">General Inquiries</div><div class="ci-v"><a href="mailto:info@nourie.com">info@nourie.com</a></div></div>
+        <div class="ci"><div class="ci-l">Government &amp; Contracts</div><div class="ci-v"><a href="mailto:contracts@hearthstoneandco.com">contracts@hearthstoneandco.com</a></div></div>
+        <div class="ci"><div class="ci-l">Facilities &amp; Partnerships</div><div class="ci-v"><a href="mailto:facilities@hearthstoneandco.com">facilities@hearthstoneandco.com</a></div></div>
+        <div class="ci"><div class="ci-l">Website</div><div class="ci-v"><a href="https://getnourie.com">getnourie.com</a></div></div>
+        <div class="ci"><div class="ci-l">Hours</div><div class="ci-v">Mon–Fri 8am–6pm CT · Sat 9am–2pm CT</div></div>
+        <div class="ci"><div class="ci-l">Location</div><div class="ci-v">Greater Houston, TX &amp; Surrounding Areas</div></div>
+        <div style="margin-top:28px;padding:20px;background:var(--goldbg);border:1px solid rgba(184,145,58,.18);border-radius:4px">
+          <div class="ci-l" style="margin-bottom:6px">Government Contracting</div>
+          <p style="font-size:13px;color:var(--ink3);line-height:1.75">For capability statements, past performance, NAICS codes, or procurement documentation — contact our contracting team directly. We respond to all government inquiries within one business day.</p>
+        </div>
+      </div>
+      <div class="rv d2">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="con-form">
+          <input type="hidden" name="form-name" value="contact">
+          <input name="bot-field" style="display:none">
+          <div class="fgrid">
+            <div class="fg"><label class="fl">Name *</label><input class="fi" type="text" name="name" required></div>
+            <div class="fg"><label class="fl">Email *</label><input class="fi" type="email" name="email" required></div>
+            <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" name="phone"></div>
+            <div class="fg"><label class="fl">Subject</label><select class="fsel" name="subject"><option value="" disabled selected>Select topic</option><option>Placement Inquiry</option><option>Partnership</option><option>Government / Contracting</option><option>Product Questions</option><option>Current Partner Support</option><option>Media / Press</option><option>Other</option></select></div>
+            <div class="fg ffull"><label class="fl">Message *</label><textarea class="fta" name="message" style="min-height:130px" required></textarea></div>
+          </div>
+          <div style="margin-top:12px"><button type="submit" class="btn btn-gold btn-w">Send Message</button></div>
+        </form>
+        <div class="fok" id="con-ok">✦ &nbsp;Message received. We'll respond within one business day.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer id="foot">
+  <div class="foot-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">Nouri<span>é</span></div>
+        <p class="ft-desc">Luxury curated workplace amenities for modern spaces — offices, apartments, gyms, spas, and government facilities across Greater Houston.</p>
+        <div class="ft-vet">Veteran-Owned · Houston, TX</div>
+      </div>
+      <div class="ft-col"><div class="ft-ct">Solutions</div><a href="#" onclick="GS('what')">What We Do</a><a href="#" onclick="GS('how')">How It Works</a><a href="#" onclick="GS('who')">Industries</a><a href="#" onclick="GS('benefits')">Business Value</a><a href="#" onclick="GS('why-sec')">Why NOURIÉ</a></div>
+      <div class="ft-col"><div class="ft-ct">Company</div><a href="#" onclick="SP('about');return false">About Us</a><a href="#" onclick="GS('gov')">Government</a><a href="#" onclick="GS('houston')">Service Areas</a><a href="#" onclick="SP('partner');return false">Partner Program</a><a href="#" onclick="SP('contact');return false">Contact</a></div>
+      <div class="ft-col"><div class="ft-ct">Contact</div><a href="tel:5126300794">(512) 630-0794</a><a href="mailto:info@nourie.com">info@nourie.com</a><a href="mailto:contracts@hearthstoneandco.com">contracts@hearthstoneandco.com</a><a href="https://hearthstoneandco.com">hearthstoneandco.com</a><a style="color:rgba(255,255,255,.22)">Houston, TX · Katy · Sugar Land</a></div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 2026 NOURIÉ by Hearthstone &amp; Co. Workforce Solutions. All rights reserved. A Division of The Shiylohe Collective. Veteran-Owned.</div>
+      <div class="ft-leg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// PAGE ROUTER
+function SP(n){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('active'));
+  var t=document.getElementById('pg-'+n);
+  if(t)t.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(IR,80);
+  return false;
+}
+function GS(id){
+  SP('home');
+  setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});},220);
+  return false;
+}
+
+// NAV
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+var hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
+hbg.addEventListener('click',function(){
+  hbg.classList.toggle('open');mob.classList.toggle('open');
+  document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
+});
+function CM(){hbg.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}
+
+// FAQ
+document.addEventListener('click',function(e){
+  var fq=e.target.closest('.faq-q');
+  if(fq)fq.parentElement.classList.toggle('open');
+});
+
+// WHO TABS
+function showWho(id,btn){
+  document.querySelectorAll('.who-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.who-tab').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('who-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// VIDEO
+function tryVid(){
+  var u=''; // paste YouTube embed URL here
+  if(u){
+    document.getElementById('yt-hero').src=u+'?autoplay=1';
+    document.getElementById('yt-hero').style.display='block';
+  }
+}
+
+// SCROLL REVEAL
+var io;
+function IR(){
+  if(io)io.disconnect();
+  var els=document.querySelectorAll('.rv:not(.in)');
+  io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.07,rootMargin:'0px 0px -18px 0px'});
+  els.forEach(function(el){io.observe(el);});
+}
+IR();window.addEventListener('load',IR);
+
+// FORMS
+[['req-form','req-ok'],['con-form','con-ok']].forEach(function(pair){
+  var f=document.getElementById(pair[0]);
+  if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).catch(function(){});
+    f.style.display='none';
+    document.getElementById(pair[1]).style.display='block';
+  });
+});
+</script>
+</body>
+</html>
